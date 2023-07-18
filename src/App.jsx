@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MyContext from './contexts/MyContext.js';
+import Footer from './components/Footer.jsx';
 function App() {
   const globalContext = {}
 
@@ -11,6 +12,7 @@ function App() {
             <Route path='/' element='' />
           </Routes>
         </BrowserRouter>
+        <Footer />
       </MyContext.Provider>
     </div>
   )
