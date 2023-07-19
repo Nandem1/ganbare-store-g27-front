@@ -1,19 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import MyContext from './contexts/MyContext.js';
+import AuthContext from './contexts/AuthContext';
 import Footer from './components/Footer.jsx';
+import LoginRegisterContainer from './views/LoginRegisterContainer/LoginRegisterContainer'
 function App() {
   const globalContext = {}
 
   return (
     <div>
-      <MyContext.Provider value={globalContext}>
+      <AuthContext.Provider value={globalContext}>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element='' />
+            <Route path='/' element={<LoginRegisterContainer />} />
           </Routes>
         </BrowserRouter>
         <Footer />
-      </MyContext.Provider>
+      </AuthContext.Provider>
     </div>
   )
 }
