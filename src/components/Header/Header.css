@@ -21,7 +21,7 @@ color: #D699A5 !important;
   
   @keyframes slide-in-out {
     0%, 100% {
-      transform: translateX(100%);
+      transform: translateX(190%);
     }
     100% {
       transform: translateX(-100%);

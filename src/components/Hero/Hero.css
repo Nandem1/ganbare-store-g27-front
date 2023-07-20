@@ -1,0 +1,10 @@
+.hero-bg {
+  width: 200px;
+  background-color: #e4e3e8f8;
+  position: relative;
+  overflow: hidden;
+  min-height: 55vh !important;
+  transform: rotate(0deg);
+  transform-origin: bottom left;
+  clip-path: polygon(0 0, 50% 950%, 100% 0);
+}
