@@ -1,0 +1,11 @@
+[
+  {
+    "desc": "Consola de nueva generación, Nintendo Switch",
+    "id": "P001",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/switch/split-cta-system",
+    "clave": ["Consolas", "Videojuegos", "Nintendo"],
+    "name": "Nintendo Switch",
+    "price": "350.000$",
+    "stock": "10"
+  }
+]

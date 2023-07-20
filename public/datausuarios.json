@@ -1,0 +1,30 @@
+[
+  {
+    "usuarios": [
+      {
+        "tipo": "admin",
+        "nombreApellido": "Admin Nombre",
+        "email": "admin@example.com",
+        "rol": "Administrador",
+        "rut": "123456789",
+        "direccion": "Calle Principal 123",
+        "numeroTelefono": "1234567890",
+        "numeroCuenta": "1234567890",
+        "numeroTarjeta": "1234 5678 9012 3456",
+        "ciudad": "Santiago"
+      },
+      {
+        "tipo": "comprador",
+        "nombreApellido": "Comprador Nombre",
+        "email": "comprador@example.com",
+        "rol": "Comprador",
+        "rut": "123456789",
+        "direccion": "Calle Principal 123",
+        "numeroTelefono": "1234567890",
+        "numeroCuenta": "1234567890",
+        "numeroTarjeta": "1234 5678 9012 3456",
+        "ciudad": "Santiago"
+      }
+    ]
+  }
+]
