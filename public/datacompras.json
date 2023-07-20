@@ -1,15 +1,65 @@
 [
   {
-    "desc": "Consola de nueva generación, Nintendo Switch",
-    "orden-compra": "P001",
-    "garantia": "1 año",
-    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/switch/split-cta-system",
-    "name": "Nintendo Switch",
-    "price": "350.000$",
-    "cantidad": "2",
-    "total-price": "700.000$",
-    "fecha-compra": "2023-07-01",
-    "fecha-entrega": "2023-07-05",
-    "recibido-por": "Sebastian Vidal Aedo"
+    "id": "1",
+    "usuarioComprador": "Sebastian Vidal Aedo",
+    "fechaCompra": "2023-07-01",
+    "fechaEntrega": "2023-07-05",
+    "recibidoPor": "Sebastian Vidal Aedo",
+    "productos": [
+      {
+        "idProducto": "1",
+        "nombre": "Producto 1",
+        "cantidad": "2",
+        "precioUnitario": "350.000"
+      },
+      {
+        "idProducto": "2",
+        "nombre": "Producto 2",
+        "cantidad": "5",
+        "precioUnitario": "2000.000"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "usuarioComprador": "Ana González",
+    "fechaCompra": "2023-07-10",
+    "fechaEntrega": "2023-07-15",
+    "recibidoPor": "Ana González",
+    "productos": [
+      {
+        "idProducto": "3",
+        "nombre": "Producto 3",
+        "cantidad": "3",
+        "precioUnitario": "500.000"
+      },
+      {
+        "idProducto": "4",
+        "nombre": "Producto 4",
+        "cantidad": "1",
+        "precioUnitario": "1200.000"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "usuarioComprador": "Carlos Ramírez",
+    "fechaCompra": "2023-07-12",
+    "fechaEntrega": "2023-07-18",
+    "recibidoPor": "Carlos Ramírez",
+    "productos": [
+      {
+        "idProducto": "5",
+        "nombre": "Producto 5",
+        "cantidad": "1",
+        "precioUnitario": "800.000"
+      },
+      {
+        "idProducto": "6",
+        "nombre": "Producto 6",
+        "cantidad": "2",
+        "precioUnitario": "1500.000"
+      }
+    ]
   }
 ]

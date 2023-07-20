@@ -2,7 +2,7 @@
   {
     "usuarios": [
       {
-        "tipo": "admin",
+        "id": "1",
         "nombreApellido": "Admin Nombre",
         "email": "admin@example.com",
         "rol": "Administrador",
@@ -14,7 +14,7 @@
         "ciudad": "Santiago"
       },
       {
-        "tipo": "comprador",
+        "id": "2",
         "nombreApellido": "Comprador Nombre",
         "email": "comprador@example.com",
         "rol": "Comprador",
