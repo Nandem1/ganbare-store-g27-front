@@ -1,0 +1,30 @@
+.hero-section {
+  height: 50vh;
+}
+
+.category-container {
+  background-color: rgba(126, 89, 84, 0.74);
+  width: 20%;
+}
+
+.category-link {
+  text-decoration: none;
+  color: #F7D6FF;
+  text-shadow: 1px 1px 2px black;
+  font-size: 19px;
+}
+
+.category-link:hover {
+  text-decoration: underline;
+}
+
+.descuentos-div-romboide {
+  width: 90%;
+  background-color: rgba(131, 152, 185, 0.7);
+  transform: skew(25deg);
+  transform-origin: top;
+}
+
+.contenido-romboide {
+  transform: skew(-25deg);
+}
