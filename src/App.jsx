@@ -1,10 +1,19 @@
-import Button from 'react-bootstrap/Button';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import MyContext from './contexts/MyContext.js';
+import Footer from './components/Footer.jsx';
 function App() {
+  const globalContext = {}
 
   return (
     <div>
-      <h1 className='fs-1 fw-bold text-center'>Hello World</h1>
-      <Button variant="primary">Primary</Button>
+      <MyContext.Provider value={globalContext}>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element='' />
+          </Routes>
+        </BrowserRouter>
+        <Footer />
+      </MyContext.Provider>
     </div>
   )
 }
