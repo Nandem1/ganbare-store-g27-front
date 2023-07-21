@@ -14,3 +14,11 @@
     color: rgb(47, 46, 46)!important;
     border-color: #c8c7c7!important;
 }
+
+.icon-size {
+    font-size: 2rem;
+  }
+
+  .icon-color {
+    color:#648ac8;
+  }
