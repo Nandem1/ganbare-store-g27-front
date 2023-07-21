@@ -54,7 +54,6 @@ const Login = () => {
           onSubmit={handleSubmit}
           validate={validateForm}
         >
-          {({ isSubmitting }) => (
             <Form>
               <div>
                 <Field
@@ -81,7 +80,6 @@ const Login = () => {
                 </Button>
               </div>
             </Form>
-          )}
         </Formik>
       </Card.Body>
       <Card.Body className='border-top'>
