@@ -1,6 +1,7 @@
 import React from 'react'
 import './Home.css'
-import { Image } from 'react-bootstrap'
+import { Image, Container, Row, Col } from 'react-bootstrap'
+import CarouselHomeMobile from '../components/CarouselHomeMobile'
 
 function Home() {
   return (
@@ -56,18 +57,43 @@ function Home() {
         </div>
       </div>
       {/* END OF Descuentos div romboide Mobile*/}
-      {/* Todo lo que buscas */}
-      <div className='lo-que-buscas-box d-flex justify-content-center align-items-center p-3'>
+      {/* Todo lo que buscas Desktop*/}
+      <div className='desktop lo-que-buscas-box d-flex justify-content-center align-items-center p-3 my-3'>
         <h2>Encuentra todo lo que buscas</h2>
       </div>
-      <div className='d-flex justify-content-evenly align-items-center'>
-        <div className='buscas-box-img'><Image src='../src/assets/homepage/nintendoswitchdocked.png'/></div>
-        <div className='buscas-box-img'><Image src='../src/assets/homepage/crysis2.png'/></div>
-        <div className='buscas-box-img'><Image src='../src/assets/homepage/mangas.png'/></div>
-        <div className='buscas-box-img'><Image src='../src/assets/homepage/kimetsufigura.png'/></div>
-        <div className='buscas-box-img'><Image src='../src/assets/homepage/poleronotaku.png'/></div>
+      <div className='desktop d-flex justify-content-evenly align-items-center mb-3'>
+        <div className='buscas-box-img desktop'><Image src='../src/assets/homepage/nintendoswitchdocked.png' /></div>
+        <div className='buscas-box-img desktop'><Image src='../src/assets/homepage/crysis2.png' /></div>
+        <div className='buscas-box-img desktop'><Image src='../src/assets/homepage/mangas.png' /></div>
+        <div className='buscas-box-img desktop'><Image src='../src/assets/homepage/kimetsufigura.png' /></div>
+        <div className='buscas-box-img desktop'><Image src='../src/assets/homepage/poleronotaku.png' /></div>
       </div>
-      {/* END OF Todo lo que buscas */}
+      {/* END OF Todo lo que buscas Desktop*/}
+      {/* Todo lo que buscas Mobile */}
+      <Container className='mobile'>
+        <CarouselHomeMobile />
+      </Container>
+      {/* Nuestras marcas */}
+      <Container className='nuestras-marcas-container mt-3'>
+        <h2 className='text-center my-3 pt-3'>Nuestras marcas</h2>
+        <Row lg={5} md={5} sm={1} xs={1}>
+          <Col className='py-3'>
+            <Image className='marcas-img m-auto' src='../src/assets/homepage/nintendologo.png'/>
+          </Col>
+          <Col className='py-3'>
+            <Image className='marcas-img m-auto' src='../src/assets/homepage/funkologo.png'/>
+          </Col>
+          <Col className='py-3'>
+            <Image className='marcas-img m-auto' src='../src/assets/homepage/marvellogo.png'/>
+          </Col>
+          <Col className='py-3'>
+            <Image className='marcas-img m-auto' src='../src/assets/homepage/dclogo.png'/>
+          </Col>
+          <Col className='py-3'>
+            <Image className='marcas-img m-auto' src='../src/assets/homepage/pslogo.png'/>
+          </Col>
+        </Row>
+      </Container>
     </>
   )
 }

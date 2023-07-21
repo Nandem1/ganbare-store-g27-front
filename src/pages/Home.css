@@ -53,9 +53,39 @@
   object-fit: cover;
 }
 
-.lo-que-buscas-box, h2 {
-  color: #6471A5;
+.lo-que-buscas-box,
+h2 {
+  color: #6471a5;
   font-weight: 400 !important;
+}
+
+.nuestras-marcas-container,
+h2 {
+  color: #6471a5;
+  font-weight: 400 !important;
+}
+
+.marcas-img {
+  height: 80px;
+  width: 100%;
+}
+
+.buscas-box-img {
+  width: 19% !important;
+  height: 150px !important;
+  background-color: rgba(247, 214, 255, 0.5);
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.buscas-box-img,
+img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 750px) {
@@ -67,5 +97,9 @@
 
   .mobile {
     display: block !important;
+  }
+
+  .category-container {
+    width: 60%;
   }
 }
