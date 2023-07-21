@@ -1,0 +1,105 @@
+.mobile {
+  display: none !important;
+}
+
+.hero-section {
+  height: 50vh;
+}
+
+.category-container {
+  background-color: rgba(126, 89, 84, 0.74);
+  width: 20%;
+}
+
+.category-link {
+  text-decoration: none;
+  color: #f7d6ff;
+  text-shadow: 1px 1px 2px black;
+  font-size: 19px;
+}
+
+.category-link:hover {
+  text-decoration: underline;
+}
+
+.descuentos-div-romboide {
+  width: 80%;
+  background-color: rgba(131, 152, 185, 0.7);
+  transform: skew(25deg);
+  transform-origin: top;
+}
+
+.discount-section {
+  margin-top: 1.5rem;
+}
+
+.descuentos-mobile-container {
+  background-color: rgba(131, 152, 185, 0.7);
+}
+
+.contenido-romboide {
+  transform: skew(-25deg);
+}
+
+.discount-image-romboide {
+  height: 100px;
+  width: auto;
+  object-fit: cover;
+}
+
+.switch-games-discount {
+  height: 100px;
+  width: auto;
+  object-fit: cover;
+}
+
+.lo-que-buscas-box,
+h2 {
+  color: #6471a5;
+  font-weight: 400 !important;
+}
+
+.nuestras-marcas-container,
+h2 {
+  color: #6471a5;
+  font-weight: 400 !important;
+}
+
+.marcas-img {
+  height: 80px;
+  width: 100%;
+}
+
+.buscas-box-img {
+  width: 19% !important;
+  height: 150px !important;
+  background-color: rgba(247, 214, 255, 0.5);
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.buscas-box-img,
+img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 750px) {
+  .desktop {
+    display: none !important;
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+
+  .mobile {
+    display: block !important;
+  }
+
+  .category-container {
+    width: 60%;
+  }
+}
