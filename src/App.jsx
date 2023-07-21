@@ -1,10 +1,20 @@
-import Button from 'react-bootstrap/Button';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import AuthContext from './contexts/AuthContext';
+import Footer from './components/Footer.jsx';
+import LoginRegisterContainer from './views/LoginRegisterContainer/LoginRegisterContainer'
 function App() {
+  const globalContext = {}
 
   return (
     <div>
-      <h1 className='fs-1 fw-bold text-center'>Hello World</h1>
-      <Button variant="primary">Primary</Button>
+      <AuthContext.Provider value={globalContext}>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<LoginRegisterContainer />} />
+          </Routes>
+        </BrowserRouter>
+        <Footer />
+      </AuthContext.Provider>
     </div>
   )
 }
