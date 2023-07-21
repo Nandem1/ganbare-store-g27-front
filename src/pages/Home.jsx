@@ -1,5 +1,6 @@
 import React from 'react'
 import './Home.css'
+import { Image } from 'react-bootstrap'
 
 function Home() {
   return (
@@ -22,12 +23,36 @@ function Home() {
         </div>
       </div >
       {/* END OF CATEGORY AND CARDS */}
-      {/* Descuentos div romboide */}
-      <div className='d-flex justify-content-center align-items-center w-100 mt-4'>
-        <div className='descuentos-div-romboide p-3'>
-          <div className='contenido-romboide'>
-            <h1 className='text-center'>descuentos siuu</h1>
+      {/* Descuentos div romboide Desktop*/}
+      <div className='desktop discount-section d-flex justify-content-center align-items-center'>
+        <div className='desktop descuentos-div-romboide p-3 me-5'>
+          <div className='contenido-romboide d-flex align-content-center justify-content-between px-3'>
+            <div className='d-flex align-items-center'>
+              <Image className='discount-image-romboide me-2' src='../src/assets/homepage/60percentdiscount.png' />
+              <h2>En juegos para Switch</h2>
+            </div>
+            <div className='d-flex'>
+              <Image className='switch-games-discount' src='../src/assets/homepage/supermarioparty.png' />
+              <Image className='switch-games-discount' src='../src/assets/homepage/pokemon.png' />
+              <Image className='switch-games-discount' src='../src/assets/homepage/mariokart.png' />
+              <Image className='switch-games-discount' src='../src/assets/homepage/animalcrossing.png' />
+              <Image className='switch-games-discount' src='../src/assets/homepage/zelda.png' />
+              <Image className='switch-games-discount' src='../src/assets/homepage/builders.png' />
+            </div>
           </div>
+        </div>
+      </div>
+      {/* END OF Descuentos div romboide Desktop*/}
+      {/* Descuentos div romboide Mobile*/}
+      <div className='mobile descuentos-mobile-container p-2'>
+        <div className='d-flex justify-content-evenly align-items-center mt-3'>
+          <Image className='discount-image-romboide' src='../src/assets/homepage/60percentdiscount.png' />
+          <h2>En juegos para Switch</h2>
+        </div>
+        <div className='d-flex justify-content-center mt-3 mb-4'>
+          <Image className='switch-games-discount' src='../src/assets/homepage/mariokart.png' />
+          <Image className='switch-games-discount' src='../src/assets/homepage/animalcrossing.png' />
+          <Image className='switch-games-discount' src='../src/assets/homepage/zelda.png' />
         </div>
       </div>
     </>
