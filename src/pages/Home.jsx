@@ -55,6 +55,19 @@ function Home() {
           <Image className='switch-games-discount' src='../src/assets/homepage/zelda.png' />
         </div>
       </div>
+      {/* END OF Descuentos div romboide Mobile*/}
+      {/* Todo lo que buscas */}
+      <div className='lo-que-buscas-box d-flex justify-content-center align-items-center p-3'>
+        <h2>Encuentra todo lo que buscas</h2>
+      </div>
+      <div className='d-flex justify-content-evenly align-items-center'>
+        <div className='buscas-box-img'><Image src='../src/assets/homepage/nintendoswitchdocked.png'/></div>
+        <div className='buscas-box-img'><Image src='../src/assets/homepage/crysis2.png'/></div>
+        <div className='buscas-box-img'><Image src='../src/assets/homepage/mangas.png'/></div>
+        <div className='buscas-box-img'><Image src='../src/assets/homepage/kimetsufigura.png'/></div>
+        <div className='buscas-box-img'><Image src='../src/assets/homepage/poleronotaku.png'/></div>
+      </div>
+      {/* END OF Todo lo que buscas */}
     </>
   )
 }

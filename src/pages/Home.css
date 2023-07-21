@@ -53,6 +53,11 @@
   object-fit: cover;
 }
 
+.lo-que-buscas-box, h2 {
+  color: #6471A5;
+  font-weight: 400 !important;
+}
+
 @media (max-width: 750px) {
   .desktop {
     display: none !important;
