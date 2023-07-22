@@ -35,13 +35,13 @@ const Login = () => {
   };
 
   return (
-    <Card style={{ width: '30%' }} className="mt-3 cardStyle shadow shadow-left border border-0">
+    <Card style={{ width: '30%' ,height:'40%' }} className="mt-3 cardStyle shadow shadow-left border border-0">
       <Card.Body>
         <div className='image-container d-flex justify-content-center align-items-center'>
           <Image
             src="/images/logo.png"
             alt="logo tienda"
-            width="30%"
+            className="logoLogin"
           />
         </div>
         <Card.Title className='text-center mb-3 fs-1'>Bienvenido</Card.Title>
@@ -84,19 +84,17 @@ const Login = () => {
       </Card.Body>
       <Card.Body className='border-top'>
         <Card.Text className='text-center'>Puedes iniciar sesión con</Card.Text>
-        <Button className="w-100 mb-3 primary" type="submit">
+        <Button className="w-100 mb-3 primary m-0 p-0 buttonRedesSociales" type="submit">
           <Image
             src='/images/google.png'
-            width='10%'
-            className='me-3'
+            className='logoRedesSociales'
           />
           Continuar con Google
         </Button>
-        <Button className="w-100 primary" type="submit">
+        <Button className="w-100 mb-3 primary m-0 p-0 buttonRedesSociales" type="submit">
           <Image
             src='/images/Facebook-logo.png'
-            width='10%'
-            className='me-3'
+            className='logoRedesSociales'
           />
           Continuar con Facebook
         </Button>

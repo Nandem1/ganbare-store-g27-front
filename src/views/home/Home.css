@@ -11,6 +11,11 @@
   width: 20%;
 }
 
+.loginRegisterContainer{
+  background-color: #fbeafe;
+  width: 15%;
+}
+
 .category-link {
   text-decoration: none;
   color: #f7d6ff;

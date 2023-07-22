@@ -11,8 +11,8 @@ function App() {
       <AuthContext.Provider value={globalContext}>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<LoginRegisterContainer />} />
-            <Route path='/home' element={<Home />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/loginRegister' element={<LoginRegisterContainer />} />
           </Routes>
         </BrowserRouter>
         <Footer />

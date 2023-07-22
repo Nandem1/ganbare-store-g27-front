@@ -81,7 +81,7 @@ const Registration = () => {
   return (
     <Card style={{ width: '30%' }} className="mt-3 cardStyle shadow shadow-left border border-0">
       <Card.Body>
-        <Image src="/images/logo.png" alt="logo tienda" width="20%" />
+        <Image src="/images/logo.png" alt="logo tienda" className="logoRegister" />
         <Card.Title className='text-center mb-3'>Crea tu cuenta en Ganbare Store</Card.Title>
         <Formik
           initialValues={{
