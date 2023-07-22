@@ -1,18 +1,11 @@
 import React from 'react'
 import './Home.css'
 import { Image, Container, Row, Col } from 'react-bootstrap'
-import CarouselHomeMobile from '../components/CarouselHomeMobile'
+import CarouselHomeMobile from '../../components/CarouselHomeMobile'
 
 function Home() {
   return (
     <>
-      {/* HERO SECTION */}
-      <div className='hero-section bg-danger d-flex justify-content-center align-items-center' >
-        <div>
-          <h1>HERO SECTION</h1>
-        </div>
-      </div >
-      {/* END OF HERO SECTION  */}
       {/* CATEGORY AND CARDS */}
       <div className='category-container rounded-pill p-3 d-flex justify-content-around align-items-center shadow mt-3 ms-3'>
         <a href="" className='category-link text-decoration-underline'>Categorias</a>
