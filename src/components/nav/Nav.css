@@ -1,0 +1,35 @@
+.custom-accordion {
+    border: none;
+    width: 100%;
+    background-color:#faf9f9!important;
+  }
+
+  .custom-accordion-item {
+    border: none;
+    background-color:#faf9f9!important;
+  }
+
+  .card {
+    background-color:#faf9f9!important;
+    border-radius: 17px!important;
+  }
+
+  .item .accordion-button{
+    background-color:#faf9f9!important;
+  }
+
+<<<<<<< HEAD
+=======
+  .profileImage{
+    width: 40%!important;
+    margin: 0!important;
+  }
+
+>>>>>>> main
+  a{
+    color:#504d4d!important;
+    text-decoration-line: none!important;
+  }
+
+
+

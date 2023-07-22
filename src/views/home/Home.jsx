@@ -1,15 +1,25 @@
 import React from 'react'
 import './Home.css'
 import { Image, Container, Row, Col } from 'react-bootstrap'
-import CarouselHomeMobile from '../../components/CarouselHomeMobile'
+<<<<<<< HEAD
+=======
+import { Link } from 'react-router-dom'
+import {RiLoginBoxFill} from 'react-icons/ri'
+>>>>>>> main
+import CarouselHomeMobile from '../../components/Carousel/CarouselHomeMobile'
 
 function Home() {
   return (
     <>
       {/* CATEGORY AND CARDS */}
-      <div className='category-container rounded-pill p-3 d-flex justify-content-around align-items-center shadow mt-3 ms-3'>
-        <a href="" className='category-link text-decoration-underline'>Categorias</a>
-        <a href="" className='category-link'>Electronica</a>
+      <div className="d-flex justify-content-between">
+        <div className='category-container rounded-pill p-3 d-flex justify-content-around align-items-center shadow mt-3 ms-3'>
+          <a href="" className='category-link text-decoration-underline'>Categorias</a>
+          <a href="" className='category-link'>Electronica</a>
+        </div>
+        <div className='loginRegisterContainer rounded-pill p-3 d-flex justify-content-around align-items-center shadow mt-3 me-3'>
+          <Link to="/loginRegister" className='category-link text-decoration-underline'><RiLoginBoxFill size={40} color='#8288c9'  />Iniciar sesión</Link>
+        </div>
       </div>
       <div className='mt-3 hero-section bg-danger d-flex justify-content-center align-items-center' >
         <div>
