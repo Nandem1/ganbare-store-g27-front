@@ -74,7 +74,7 @@ const Login = () => {
 
                 <Button
                   type="submit"
-                  className="w-100 mt-3"
+                  className="w-100 mt-3 primary"
                 >
                   Ingresar
                 </Button>
@@ -84,7 +84,7 @@ const Login = () => {
       </Card.Body>
       <Card.Body className='border-top'>
         <Card.Text className='text-center'>Puedes iniciar sesión con</Card.Text>
-        <Button className={`w-100 mb-3`} type="submit">
+        <Button className="w-100 mb-3 primary" type="submit">
           <Image
             src='/images/google.png'
             width='10%'
@@ -92,13 +92,13 @@ const Login = () => {
           />
           Continuar con Google
         </Button>
-        <Button className={`w-100`} type="submit">
+        <Button className="w-100 primary" type="submit">
           <Image
             src='/images/Facebook-logo.png'
             width='10%'
             className='me-3'
           />
-          Continuar con Google
+          Continuar con Facebook
         </Button>
       </Card.Body>
     </Card>
