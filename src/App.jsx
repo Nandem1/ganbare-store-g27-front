@@ -1,22 +1,23 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import AuthContext from './contexts/AuthContext';
-import Footer from './components/footer/Footer.jsx';
-import LoginRegisterContainer from './views/LoginRegisterContainer/LoginRegisterContainer'
-import Home from './views/home/Home.jsx';
+import MyContext from './contexts/MyContext.js';
+import Footer from './components/Footer.jsx';
+import Header from './components/Header/Header.jsx';
+import Hero from './components/Hero/Hero.jsx';
 function App() {
   const globalContext = {}
 
   return (
     <div>
-      <AuthContext.Provider value={globalContext}>
+      <MyContext.Provider value={globalContext}>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<LoginRegisterContainer />} />
-            <Route path='/home' element={<Home />} />
+            <Route path='/' element='' />
           </Routes>
         </BrowserRouter>
+        <Header />
+        <Hero />
         <Footer />
-      </AuthContext.Provider>
+      </MyContext.Provider>
     </div>
   )
 }

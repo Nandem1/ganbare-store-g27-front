@@ -1,0 +1,62 @@
+[
+  {
+    "desc": "Consola de nueva generación, Nintendo Switch",
+    "id": "1",
+    "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/switch/split-cta-system",
+    "clave": ["Consolas", "Videojuegos", "Nintendo"],
+    "nombre": "Nintendo Switch",
+    "precio": "350.000$",
+    "stock": "10",
+    "garantia": "Este producto tiene garantia por 1 año"
+  },
+  {
+    "desc": "Controlador inalámbrico para Nintendo Switch",
+    "id": "2",
+    "img": "https://assets.nintendo.com/image/upload/f_auto,q_auto/dpr_2.0/c_pad,w_400,h_400,b_white/q_auto:good,f_auto/ncom/en_US/switch/wireless-controllers/joystick-gray",
+    "clave": ["Accesorios", "Videojuegos", "Nintendo"],
+    "nombre": "Controlador inalámbrico para Switch",
+    "precio": "50.000$",
+    "stock": "20",
+    "garantia": "Este producto tiene garantia por 6 meses"
+  },
+  {
+    "desc": "Juego de aventuras para Nintendo Switch",
+    "id": "3",
+    "img": "https://assets.nintendo.com/image/upload/f_auto,q_auto/dpr_2.0/c_pad,w_400,h_400,b_white/q_auto:good,f_auto/ncom/en_US/switch/games/zelda-breath-of-the-wild",
+    "clave": ["Videojuegos", "Nintendo"],
+    "nombre": "The Legend of Zelda: Breath of the Wild",
+    "precio": "60.000$",
+    "stock": "5",
+    "garantia": "Este producto tiene garantia por 3 meses"
+  },
+  {
+    "desc": "Cargador USB-C para Nintendo Switch",
+    "id": "4",
+    "img": "https://example.com/cargador-switch.jpg",
+    "clave": ["Accesorios", "Nintendo"],
+    "nombre": "Cargador USB-C para Switch",
+    "precio": "20.000$",
+    "stock": "15",
+    "garantia": "Este producto tiene garantia por 1 año"
+  },
+  {
+    "desc": "Funda protectora para Nintendo Switch",
+    "id": "5",
+    "img": "https://example.com/funda-switch.jpg",
+    "clave": ["Accesorios", "Nintendo"],
+    "nombre": "Funda protectora para Switch",
+    "precio": "15.000$",
+    "stock": "8",
+    "garantia": "Este producto tiene garantia por 6 meses"
+  },  
+  {
+    "desc": "Juego de carreras para Nintendo Switch",
+    "id": "6",
+    "img": "https://example.com/juego-carreras-switch.jpg",
+    "clave": ["Videojuegos", "Nintendo"],
+    "nombre": "Mario Kart 8 Deluxe",
+    "precio": "55.000$",
+    "stock": "12",
+    "garantia": "Este producto tiene garantia por 3 meses"
+  }
+]
