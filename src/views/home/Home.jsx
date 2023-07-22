@@ -1,7 +1,7 @@
 import React from 'react'
 import './Home.css'
 import { Image, Container, Row, Col } from 'react-bootstrap'
-import CarouselHomeMobile from '../../components/CarouselHomeMobile'
+import CarouselHomeMobile from '../../components/Carousel/CarouselHomeMobile'
 
 function Home() {
   return (
