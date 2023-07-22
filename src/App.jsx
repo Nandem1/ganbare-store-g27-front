@@ -11,7 +11,8 @@ function App() {
       <MyContext.Provider value={globalContext}>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element='' />
+            <Route path='/' element={<Home />} />
+            <Route path='/loginRegister' element={<LoginRegisterContainer />} />
           </Routes>
         </BrowserRouter>
         <Header />

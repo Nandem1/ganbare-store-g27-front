@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import './Footer.css'
 
+
 function Footer() {
   return (
     <>
@@ -76,8 +77,8 @@ function Footer() {
               <div className='d-flex flex-column align-items-start'>
                 <h3 className='h3-footer'>Mi cuenta</h3>
                 <div className='opacity-75 d-flex flex-column'>
-                  <a href='' className='m-0 link-to-category-footer'>Ingresa</a>
-                  <a href='' className='m-0 link-to-category-footer'>Registrar</a>
+                  <a href='/loginRegister' className='m-0 link-to-category-footer'>Ingresa</a>
+                  <a href='/loginRegister' className='m-0 link-to-category-footer'>Registrar</a>
                 </div>
               </div>
             </Col>
