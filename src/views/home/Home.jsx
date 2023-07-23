@@ -1,21 +1,18 @@
 import React from 'react'
 import './Home.css';
 import { Image, Container, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import {RiLoginBoxFill} from 'react-icons/ri';
 import CarouselHomeMobile from '../../components/Carousel/CarouselHomeMobile';
+import Hero from '../../components/Hero/Hero'
 
 function Home() {
   return (
     <>
+      <Hero />
       {/* CATEGORY AND CARDS */}
       <div className="d-flex justify-content-between">
         <div className='category-container rounded-pill p-3 d-flex justify-content-around align-items-center shadow mt-3 ms-3'>
           <a href="" className='category-link text-decoration-underline'>Categorias</a>
           <a href="" className='category-link'>Electronica</a>
-        </div>
-        <div className='loginRegisterContainer rounded-pill p-3 d-flex justify-content-around align-items-center shadow mt-3 me-3'>
-          <Link to="/loginRegister" className='category-link text-decoration-underline'><RiLoginBoxFill size={40} color='#8288c9'  />Iniciar sesión</Link>
         </div>
       </div>
       <div className='mt-3 hero-section bg-danger d-flex justify-content-center align-items-center' >
