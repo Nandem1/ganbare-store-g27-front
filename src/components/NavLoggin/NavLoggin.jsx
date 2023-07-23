@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import './NavLoggin.css'
 
@@ -9,7 +10,7 @@ const NavLoggin = () => {
                         <Nav.Link href="/home" className="heartbeat colorButton mb-1">Inicio</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="/account" className="heartbeat colorButton mb-1">Mi cuenta</Nav.Link>
+                        <Nav.Link as={Link} to="/miCuenta" className="heartbeat colorButton mb-1">Mi cuenta</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link href="/cart"><span className="heartbeat colorButton mb-1 material-symbols-outlined">shopping_cart</span></Nav.Link>

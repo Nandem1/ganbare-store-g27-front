@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Validator from 'validator';
@@ -11,12 +11,6 @@ import './Login.css';
 const Login = () => {
   const { login, setSuccess, errorType } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  // useEffect(() => {
-    // if (success) {
-      // navigate('/');
-    // }
-  // }, [success]);
 
   const validateForm = (values) => {
     const errors = {};
