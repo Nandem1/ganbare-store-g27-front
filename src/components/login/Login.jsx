@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Validator from 'validator';
@@ -8,32 +8,15 @@ import Card from 'react-bootstrap/Card';
 import SweetAlertMessage from '../sweetAlertMessage/sweetAlertMessage';
 import './Login.css';
 
-
 const Login = () => {
   const { login, success, setSuccess, errorType } = useContext(AuthContext);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
-    const handleSubmit = (values) => {
-    const loginData = {
-      email: values.email,
-      password: values.password
-    }
-    setIsLoggedIn(login(loginData));
 
-    if (isLoggedIn){
-      setSuccess(true);
-    }else{
-      setSuccess(false);
-    }
-
-
-  };
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate('/home');
-    }
-  }, [isLoggedIn]);
+  // useEffect(() => {
+    // if (success) {
+      // navigate('/');
+    // }
+  // }, [success]);
 
   const validateForm = (values) => {
     const errors = {};
@@ -49,28 +32,42 @@ const Login = () => {
     return errors;
   };
 
+  const handleSubmit = (values) => {
+    const isLoggedIn = login({
+      email: values.email,
+      password: values.password,
+    });
+
+    if (isLoggedIn) {
+      setSuccess(true);
+      navigate('/');
+    } else {
+      setSuccess(false);
+    }
+  };
+
   return (
     <>
-    {errorType && <SweetAlertMessage errorType={errorType}/> }
-    <Card style={{ width: '30%' ,height:'40%' }} className="mt-3 cardStyle shadow shadow-left border border-0">
-      <Card.Body>
-        <div className='image-container d-flex justify-content-center align-items-center'>
-          <Image
-            src="/images/logo.png"
-            alt="logo tienda"
-            className="logoLogin"
-          />
-        </div>
-        <Card.Title className='text-center mb-3 fs-1'>Bienvenido</Card.Title>
-        <Card.Text className='text-center mb-3'>Ingresa a tu cuenta para continuar</Card.Text>
-        <Formik
-          initialValues={{
-            email: '',
-            password: '',
-          }}
-          onSubmit={handleSubmit}
-          validate={validateForm}
-        >
+      {errorType && <SweetAlertMessage errorType={errorType} />}
+      <Card style={{ width: '30%', height: '40%' }} className="mt-3 cardStyle shadow shadow-left border border-0">
+        <Card.Body>
+          <div className='image-container d-flex justify-content-center align-items-center'>
+            <Image
+              src="/images/logo.png"
+              alt="logo tienda"
+              className="logoLogin"
+            />
+          </div>
+          <Card.Title className='text-center mb-3 fs-1'>Bienvenido</Card.Title>
+          <Card.Text className='text-center mb-3'>Ingresa a tu cuenta para continuar</Card.Text>
+          <Formik
+            initialValues={{
+              email: '',
+              password: '',
+            }}
+            validate={validateForm}
+            onSubmit={handleSubmit}
+          >
             <Form>
               <div>
                 <Field
@@ -97,26 +94,26 @@ const Login = () => {
                 </Button>
               </div>
             </Form>
-        </Formik>
-      </Card.Body>
-      <Card.Body className='border-top'>
-        <Card.Text className='text-center'>Puedes iniciar sesión con</Card.Text>
-        <Button className="w-100 mb-3 primary m-0 p-0 buttonRedesSociales" type="submit">
-          <Image
-            src='/images/google.png'
-            className='logoRedesSociales'
-          />
-          Continuar con Google
-        </Button>
-        <Button className="w-100 mb-3 primary m-0 p-0 buttonRedesSociales" type="submit">
-          <Image
-            src='/images/Facebook-logo.png'
-            className='logoRedesSociales'
-          />
-          Continuar con Facebook
-        </Button>
-      </Card.Body>
-    </Card>
+          </Formik>
+        </Card.Body>
+        <Card.Body className='border-top'>
+          <Card.Text className='text-center'>Puedes iniciar sesión con</Card.Text>
+          <Button className="w-100 mb-3 primary m-0 p-0 buttonRedesSociales" type="submit">
+            <Image
+              src='/images/google.png'
+              className='logoRedesSociales'
+            />
+            Continuar con Google
+          </Button>
+          <Button className="w-100 mb-3 primary m-0 p-0 buttonRedesSociales" type="submit">
+            <Image
+              src='/images/Facebook-logo.png'
+              className='logoRedesSociales'
+            />
+            Continuar con Facebook
+          </Button>
+        </Card.Body>
+      </Card>
     </>
   );
 }
