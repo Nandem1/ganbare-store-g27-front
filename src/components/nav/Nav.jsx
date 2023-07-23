@@ -6,17 +6,10 @@ const Nav = () => {
     return (
       <Card style={{ width: '25%' }}  className='mt-2 d-flex border-0 shadow'>
         <Card.Body className="p-1">
-<<<<<<< HEAD
-          <Card.Title className='fs-2 font-weight-bold'>Mi cuenta</Card.Title>
-          <Card.Text className='d-flex align-items-center gap-3'>
-            <Image src='https://cdn.myanimelist.net/images/characters/15/262053.jpg' roundedCircle width= "100" height="130"/>
-            <p>Hola, <strong>Asuna</strong></p>
-=======
           <Card.Title className='fs-2 font-weight-bold m-2'>Mi cuenta</Card.Title>
           <Card.Text className='d-flex align-items-center gap-3'>
             <Image src='https://cdn.myanimelist.net/images/characters/15/262053.jpg' className="profileImage" roundedCircle/>
             <p className="h5">Hola, <strong>Asuna</strong></p>
->>>>>>> main
           </Card.Text>
           <Accordion className="custom-accordion">
             <Accordion.Item eventKey="0" className="custom-accordion-item border-0 border-bottom">
