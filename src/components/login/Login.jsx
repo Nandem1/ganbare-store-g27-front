@@ -1,24 +1,39 @@
+import { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Validator from 'validator';
 import { Button, Image } from 'react-bootstrap';
+import { AuthContext } from '../../contexts/AuthContext';
 import Card from 'react-bootstrap/Card';
+import SweetAlertMessage from '../sweetAlertMessage/sweetAlertMessage';
 import './Login.css';
-import { useState } from 'react';
+
 
 const Login = () => {
-  const [success, setSuccess] = useState(false);
-  const handleSubmit = (values) => {
-    const login = {
+  const { login, success, setSuccess, errorType } = useContext(AuthContext);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+    const handleSubmit = (values) => {
+    const loginData = {
       email: values.email,
       password: values.password
     }
+    setIsLoggedIn(login(loginData));
 
-    const user = JSON.parse(localStorage.getItem('user'));
+    if (isLoggedIn){
+      setSuccess(true);
+    }else{
+      setSuccess(false);
+    }
 
-    (user.email === login.email && user.password === login.password)?alert("bienvenido"):alert("usuario/contraseña incorrectos");
-    setSuccess(true);
-    console.log(success);
+
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/home');
+    }
+  }, [isLoggedIn]);
 
   const validateForm = (values) => {
     const errors = {};
@@ -35,6 +50,8 @@ const Login = () => {
   };
 
   return (
+    <>
+    {errorType && <SweetAlertMessage errorType={errorType}/> }
     <Card style={{ width: '30%' ,height:'40%' }} className="mt-3 cardStyle shadow shadow-left border border-0">
       <Card.Body>
         <div className='image-container d-flex justify-content-center align-items-center'>
@@ -100,6 +117,7 @@ const Login = () => {
         </Button>
       </Card.Body>
     </Card>
+    </>
   );
 }
 

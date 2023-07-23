@@ -1,12 +1,9 @@
 import React from 'react'
-import './Home.css'
-import { Image, Container, Row, Col } from 'react-bootstrap'
-<<<<<<< HEAD
-=======
-import { Link } from 'react-router-dom'
-import {RiLoginBoxFill} from 'react-icons/ri'
->>>>>>> main
-import CarouselHomeMobile from '../../components/Carousel/CarouselHomeMobile'
+import './Home.css';
+import { Image, Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import {RiLoginBoxFill} from 'react-icons/ri';
+import CarouselHomeMobile from '../../components/Carousel/CarouselHomeMobile';
 
 function Home() {
   return (
