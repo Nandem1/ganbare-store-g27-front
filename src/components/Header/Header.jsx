@@ -7,7 +7,7 @@ import './Header.css'
 import NavPublic from '../NavPublic/NavPublic';
 
 function Header() {
-  const { success } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   return (
     <>
       <Container fluid className='header-bg w-100 h-50 d-flex justify-content-between align-items-center'>
@@ -15,8 +15,7 @@ function Header() {
         <div>
         <h1>Ganbare Store</h1>
         </div>
-        {console.log(success)}
-        {(success === true)?<NavLoggin />:<NavPublic />}
+        {(user)?<NavLoggin />:<NavPublic />}
       </Container>
       <Container fluid className='subtitle w-100 h-20 d-flex justify-content-between align-items-center'>
       <div>
