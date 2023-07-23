@@ -3,6 +3,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import Footer from './components/footer/Footer.jsx';
 import Header from './components/Header/Header.jsx';
 import Home from './views/home/Home.jsx';
+import MyAccount from './views/MyAccount/MyAccount'
 import LoginRegisterContainer from './views/LoginRegisterContainer/LoginRegisterContainer';
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/loginRegister' element={<LoginRegisterContainer />} />
+            <Route path='/miCuenta' element={<MyAccount />} />
           </Routes>
         </BrowserRouter>
         <Footer />
