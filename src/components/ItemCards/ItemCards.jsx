@@ -27,7 +27,7 @@ function ItemCards() {
       <Row lg={4} md={3} sm={1} xs={1} className='row-gap-4'>
         {cuatroProductos.map((item) => {
           return (
-            <Col>
+            <Col key={item.id}>
               <Card className='card-container m-auto shadow'>
                 <Card.Img className='card-image' variant="top" src={item?.img} />
                 <Card.Body>
