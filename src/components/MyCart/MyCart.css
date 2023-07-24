@@ -1,0 +1,10 @@
+.cart-box {
+  background-color: rgba(247, 214, 255, 0.8);
+  min-height: 50vh;
+}
+
+.cart-img-product {
+  width: 10%;
+  height: auto;
+  object-fit: cover;
+}
