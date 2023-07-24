@@ -1,10 +1,43 @@
 .hero-bg {
   width: 200px;
-  background-color: #e4e3e8f8;
+  background-color: #F8F8F8;
   position: relative;
   overflow: hidden;
   min-height: 55vh !important;
   transform: rotate(0deg);
   transform-origin: bottom left;
   clip-path: polygon(0 0, 50% 950%, 100% 0);
+}
+.carousel-container {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  overflow-y: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.carousel-inner-mobile {
+  display: flex;
+}
+
+.slide-mobile {
+  flex: 0 0 auto;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+.buscas-box-img-mobile {
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.bgHeroImg, 
+img {
+  margin: 0 auto;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
 }
