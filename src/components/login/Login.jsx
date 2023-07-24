@@ -5,7 +5,7 @@ import * as Validator from 'validator';
 import { Button, Image } from 'react-bootstrap';
 import { AuthContext } from '../../contexts/AuthContext';
 import Card from 'react-bootstrap/Card';
-import SweetAlertMessage from '../sweetAlertMessage/sweetAlertMessage';
+import SweetAlertMessage from '../sweetAlertMessage/SweetAlertMessage';
 import './Login.css';
 
 const Login = () => {
