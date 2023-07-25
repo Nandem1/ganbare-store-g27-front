@@ -4,7 +4,7 @@ import './Nav.css';
 
 const Nav = () => {
     return (
-      <Card style={{ width: '25%' }}  className='mt-2 d-flex border-0 shadow'>
+      <Card style={{ width: '25%' }}  className='mt-4 d-flex border-0 shadow'>
         <Card.Body className="p-1">
           <Card.Title className='fs-2 font-weight-bold m-2'>Mi cuenta</Card.Title>
           <Card.Text className='d-flex align-items-center gap-3'>

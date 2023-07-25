@@ -9,6 +9,7 @@ const AuthProvider = ({ children }) => {
     const [success, setSuccess] = useState(false);
     const [errorType, setErrorType] = useState(null);
     const [products, setProducts] = useState([])
+    const [cart, setCart] = useState([]);
 
     const login = (userData) => {
         const userDataLocal = JSON.parse(localStorage.getItem("user"));
@@ -32,8 +33,9 @@ const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        setUser(null);
-        console.log(success);
+    localStorage.removeItem("user");
+    setUser(null);
+    console.log(success);
     };
 
     // Lectura de productos
@@ -56,7 +58,7 @@ const AuthProvider = ({ children }) => {
     }, [products])
 
     return (
-        <AuthContext.Provider value={{ user, login, logout, setSuccess, errorType, setErrorType, products }}>
+        <AuthContext.Provider value={{ user,setUser, login, logout, setSuccess, errorType, setErrorType, products, cart, setCart }}>
             {children}
         </AuthContext.Provider>
     )

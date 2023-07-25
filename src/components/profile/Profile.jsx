@@ -1,208 +1,120 @@
-import { useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Button, Modal } from 'react-bootstrap';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
-import SweetAlert from 'react-bootstrap-sweetalert';
-import validator from 'validator';
+import { Card, Form, Button, Container } from 'react-bootstrap';
+import { Formik, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import "./Profile.css"
 
-const EditProfileCard = ({ user }) => {
+const EditProfileCard = () => {
+  const { user, setUser} = useContext(AuthContext);
   const [isEditing, setIsEditing] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const { user } = useContext(AuthContext);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  // Esquema de validación con Yup
+  const validationSchema = Yup.object().shape({
+    formEmail: Yup.string().email('Email inválido').required('Email es requerido'),
+    formRut: Yup.string().required('RUT es requerido'),
+    formPhone: Yup.string().required('Teléfono es requerido'),
+    formAddress: Yup.string().required('Dirección es requerida'),
+    formCity: Yup.string().required('Ciudad es requerida'),
+    formRegion: Yup.string().required('Región es requerida'),
+  });
 
-  const initialValues = {
-    email: user.email || '',
-    phone: user.phone || '',
-    rut: user.rut || '',
-    password: user.password || '',
-    address: user.address || '',
-    region: user.region || ''
-  };
-
-  const handleValidation = (values) => {
-    const errors = {};
-
-    if (validator.isEmpty(values.name)) {
-      errors.email = 'El mail es obligatorio';
-      errors.phone = 'El telefono es obligatorio';
-      errors.rut = 'El rut es obligatorio';
-      errors.addres = 'La direccion es obligatoria';
-      errors.region = 'La region es obligatoria';
+  const handleSubmit = (values, {resetForm}) => {
+    if (user){
+      const updatedUser = {
+        ...user,
+        formEmail: values.formEmail,
+        formRut: values.formRut,
+        formPhone: values.formPhone,
+        formAddress: values.formAddress,
+        formCity: values.formCity,
+        formRegion: values.formRegion,
+      };
+      setUser(updatedUser);
+      localStorage.removeItem(user);
+      localStorage.setItem(user, JSON.stringify(updatedUser));
+      setIsFormSubmitted(true);
+      setIsEditing(false)
     }
 
-    return errors;
-  };
-
-  const handleEditData = () => {
-    setIsEditing(true);
-  };
-
-  const handleConfirmData = (values) => {
-   if (user.email !== )
-
-
-    setIsEditing(false);
-    SweetAlert('Datos actualizados con éxito', '', 'success');
-  };
-
-  const handleEditPassword = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
-  const handlePasswordModalSubmit = (values, { resetForm }) => {
-    // Validar la contraseña ingresada y realizar el cambio de contraseña en el localStorage o enviarlo al servidor
-    // ... Aquí deberías validar la contraseña actual y realizar el cambio de contraseña ...
-
     resetForm();
-    setShowModal(false);
-  };
+    }
 
   return (
-    <>
-      <div className="card">
-        <div className="card-body">
+    <Container className="d-flex ms-3 mt-4 border-0 rounded">
+      <Card className="border-0 shadow w-100">
+        <Card.Body>
+          <Card.Title>User Information</Card.Title>
           <Formik
-            initialValues={initialValues}
-            validate={handleValidation}
-            onSubmit={handleConfirmData}
+            initialValues={{
+              formEmail: user.email,
+              formRut: user.rut,
+              formPhone: user.phone,
+              formAddress: user.address,
+              formCity: user.city,
+              formRegion: user.region,
+            }}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
           >
-            {({ values, handleChange, handleBlur, errors, touched }) => (
-              <Form>
-                <div className="mb-3">
-                  <label htmlFor="name" className="form-label">
-                    Nombre
-                  </label>
-                  <Field
-                    type="text"
-                    name="name"
-                    id="name"
-                    className="form-control"
-                    disabled={!isEditing}
-                  />
-                  <ErrorMessage
-                    name="name"
-                    component="div"
-                    className="text-danger"
-                  />
+            {({ handleSubmit, isSubmitting, submitForm }) => (
+              <Form className="d-flex flex-wrap" onSubmit={handleSubmit}>
+                <Form.Group controlId="formEmail" className="w-100">
+                  <Form.Label>Email</Form.Label>
+                  <Field type="email" name="formEmail" placeholder="Enter email" as={Form.Control} disabled={!isEditing} />
+                  <ErrorMessage name="formEmail" component="div" className="text-danger" />
+                </Form.Group>
+
+                <Form.Group controlId="formRut" className="w-50 mt-2">
+                  <Form.Label>RUT</Form.Label>
+                  <Field type="text" name="formRut" placeholder="Enter RUT" as={Form.Control} disabled={!isEditing} />
+                  <ErrorMessage name="formRut" component="div" className="text-danger" />
+                </Form.Group>
+
+                <Form.Group controlId="formPhone" className="w-50 mt-2">
+                  <Form.Label>Phone</Form.Label>
+                  <Field type="text" name="formPhone" placeholder="Enter phone number" as={Form.Control} disabled={!isEditing} />
+                  <ErrorMessage name="formPhone" component="div" className="text-danger" />
+                </Form.Group>
+
+                <div className="d-flex w-100 gap-2 mt-2 justify-content-between">
+                  <Form.Group controlId="formAddress" className="custom-width">
+                    <Form.Label>Address</Form.Label>
+                    <Field type="text" name="formAddress" placeholder="Enter address" as={Form.Control} disabled={!isEditing} />
+                    <ErrorMessage name="formAddress" component="div" className="text-danger" />
+                  </Form.Group>
+
+                  <Form.Group controlId="formCity" className="custom-width">
+                    <Form.Label>City</Form.Label>
+                    <Field type="text" name="formCity" placeholder="Enter city" as={Form.Control} disabled={!isEditing} />
+                    <ErrorMessage name="formCity" component="div" className="text-danger" />
+                  </Form.Group>
+
+                  <Form.Group controlId="formRegion" className="custom-width">
+                    <Form.Label>Region</Form.Label>
+                    <Field type="text" name="formRegion" placeholder="Enter region" as={Form.Control} disabled={!isEditing} />
+                    <ErrorMessage name="formRegion" component="div" className="text-danger" />
+                  </Form.Group>
                 </div>
 
-                {/* Agrega más campos del formulario aquí */}
-
-                {!isEditing && (
-                  <Button variant="primary" onClick={handleEditData}>
-                    Editar Datos
+                {isEditing ? (
+                  <Button variant="primary" type="button" className="mt-5 buttonCustom" onClick={()=> {
+                    setIsEditing(false);
+                    submitForm()
+                  }}>
+                    Guardar información
+                  </Button>
+                ):(
+                  <Button variant="primary" className="mt-5 buttonCustom" onClick={() => setIsEditing(true)}>
+                    Editar perfil
                   </Button>
                 )}
-                {isEditing && (
-                  <>
-                    <Button variant="success" type="submit">
-                      Confirmar Datos
-                    </Button>
-                    <Button variant="secondary" onClick={handleEditPassword}>
-                      Editar Contraseña
-                    </Button>
-                  </>
-                )}
               </Form>
             )}
           </Formik>
-        </div>
-      </div>
-
-      {/* Modal para editar contraseña */}
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Editar Contraseña</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Formik
-            initialValues={{ currentPassword: '', newPassword: '', confirmPassword: '' }}
-            validate={(values) => {
-              const errors = {};
-
-              if (validator.isEmpty(values.currentPassword)) {
-                errors.currentPassword = 'Contraseña actual requerida';
-              }
-
-              if (validator.isEmpty(values.newPassword)) {
-                errors.newPassword = 'Nueva contraseña requerida';
-              }
-
-              if (!validator.equals(values.newPassword, values.confirmPassword)) {
-                errors.confirmPassword = 'Las contraseñas no coinciden';
-              }
-
-              return errors;
-            }}
-            onSubmit={handlePasswordModalSubmit}
-          >
-            {({ handleSubmit }) => (
-              <Form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                  <label htmlFor="currentPassword" className="form-label">
-                    Contraseña Actual
-                  </label>
-                  <Field
-                    type="password"
-                    name="currentPassword"
-                    id="currentPassword"
-                    className="form-control"
-                  />
-                  <ErrorMessage
-                    name="currentPassword"
-                    component="div"
-                    className="text-danger"
-                  />
-                </div>
-
-                {/* Agrega los campos para la nueva contraseña y su confirmación aquí */}
-                <div className="mb-3">
-                  <label htmlFor="newPassword" className="form-label">
-                    Nueva Contraseña
-                  </label>
-                  <Field
-                    type="password"
-                    name="newPassword"
-                    id="newPassword"
-                    className="form-control"
-                  />
-                  <ErrorMessage
-                    name="newPassword"
-                    component="div"
-                    className="text-danger"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="confirmPassword" className="form-label">
-                    Confirmar Nueva Contraseña
-                  </label>
-                  <Field
-                    type="password"
-                    name="confirmPassword"
-                    id="confirmPassword"
-                    className="form-control"
-                  />
-                  <ErrorMessage
-                    name="confirmPassword"
-                    component="div"
-                    className="text-danger"
-                  />
-                </div>
-
-                <Button variant="primary" type="submit">
-                  Cambiar Contraseña
-                </Button>
-              </Form>
-            )}
-          </Formik>
-        </Modal.Body>
-      </Modal>
-    </>
+        </Card.Body>
+      </Card>
+    </Container>
   );
 };
 

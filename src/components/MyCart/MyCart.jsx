@@ -1,10 +1,47 @@
 import { React, useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
-import { Container, Row, Col, Image, Button } from 'react-bootstrap'
+import { Container, Row, Col, Image, Button, Modal } from 'react-bootstrap';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 import './MyCart.css'
 
 function MyCart() {
-  const { products } = useContext(AuthContext)
+  const { cart, setCart } = useContext(AuthContext);
+  const [showModal, setShowModal] = useState(false);
+
+  const convertStringToNumber = (str) => {
+    const numberStr = str.replace(/\$|,|\./g, '');
+    return parseInt(numberStr);
+  };
+
+  const calculateSubtotal = () => {
+    return cart.reduce((total, item) => total + convertStringToNumber(item.precio) * item.cantidad, 0);
+  };
+
+  const calculateDiscount = (subtotal) => {
+    return subtotal * 0.05;
+  };
+
+  const calculateTotal = (subtotal, discount) => {
+    return subtotal - discount;
+  };
+
+  const handlePagarClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCancelarClick = () => {
+    setShowModal(false);
+  };
+
+  const handlePagoClick = (opcion) => {
+    setShowModal(false);
+    Swal.fire({
+      icon: 'success',
+      title: 'Gracias por su compra',
+      text: `Ha seleccionado ${opcion}`,
+    });
+  };
 
   return (
     <div>
@@ -19,29 +56,46 @@ function MyCart() {
                 <h5 className='fw-normal'>Cantidad</h5>
                 <h5 className='fw-normal'>Subtotal</h5>
               </div>
-              <div className='d-flex justify-content-between w-100 px-3 align-items-center'>
-                <Image className='m-0 p-0 cart-img-product' src={products[0]?.img} />
-                <p className='me-5'>$49.990</p>
-                <p>1</p>
-                <p>$49.990</p>
+              {cart.map(product => (
+                <div key={product.id} className='d-flex justify-content-between w-100 px-3 align-items-center'>
+                  <Image className='m-0 p-0 cart-img-product' src={product.img} />
+                  <p className='me-5'>${product.precio.slice(0,-1)}</p>
+                  <p>{product.cantidad}</p>
+                  <p>${(convertStringToNumber(product.precio) * product.cantidad).toLocaleString()}</p>
+                </div>
+              ))}
               </div>
-            </div>
           </Col>
           <Col className='my-4 ms-3 me-3 border p-3 bg-light shadow'>
             <h2>RESUMEN DEL PEDIDO</h2>
             <div>
               <div>
-                <p className='m-0 d-flex justify-content-between align-items-center'><span>SUBTOTAL</span><span>$49.990</span></p>
+                <p className='m-0 d-flex justify-content-between align-items-center'><span>SUBTOTAL</span><span>${calculateSubtotal().toLocaleString()}</span></p>
                 <p className='m-0 d-flex justify-content-between align-items-center'><span>ENVIO</span><span>$0</span></p>
-                <p className='d-flex justify-content-between align-items-center'><span>DESCUENTOS</span><span>-$4.000</span></p>
-                <p className='d-flex justify-content-between align-items-center'><strong>TOTAL</strong><strong>$45.990</strong></p>
+                <p className='d-flex justify-content-between align-items-center'><span>DESCUENTOS</span><span>{calculateDiscount(calculateSubtotal()).toLocaleString()}</span></p>
+                <p className='d-flex justify-content-between align-items-center'><strong>TOTAL</strong><strong>${calculateTotal(calculateSubtotal(), calculateDiscount(calculateSubtotal())).toLocaleString()}</strong></p>
               </div>
             </div>
           </Col>
-          <Button variant='dark'>Ir a pagar</Button>
+          <Button variant='dark' onClick={handlePagarClick}>Ir a pagar</Button>
         </Row>
       </Container>
-    </div>
+
+
+    {/* Modal para mostrar las opciones de pago */}
+    <Modal show={showModal} onHide={handleCancelarClick}>
+    <Modal.Header closeButton>
+      <Modal.Title>Opciones de pago</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+      <Button variant='secondary' onClick={() => handlePagoClick('Mercado Pago')}>Mercado Pago</Button>{' '}
+      <Button variant='secondary' onClick={() => handlePagoClick('OnePay')}>OnePay</Button>
+    </Modal.Body>
+    <Modal.Footer>
+      <Button variant='danger' onClick={handleCancelarClick}>Cancelar</Button>
+    </Modal.Footer>
+  </Modal>
+  </div>
   )
 }
 

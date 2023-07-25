@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -7,7 +7,7 @@ import './ItemCards.css'
 import { FaRegHeart, FaHeart } from 'react-icons/fa'
 
 function ItemCards() {
-  const { products } = useContext(AuthContext)
+  const { products, cart, setCart, productsNumberInCart } = useContext(AuthContext)
   const cuatroProductos = products.slice(0, 4)
 
   const calcularPrecioSinOferta = (precioData) => {
@@ -21,6 +21,24 @@ function ItemCards() {
   if (products == []) {
     return <p>Cargando</p>
   }
+
+  const handleAddCart = (item) => {
+    const existingProduct = cart.find((cartItem) => cartItem.id === item.id);
+
+    if (existingProduct) {
+      const updatedCart = cart.map((cartItem) =>
+        cartItem.id === item.id ? { ...cartItem, cantidad: cartItem.cantidad + 1 } : cartItem
+      );
+      setCart(updatedCart);
+    } else {
+      setCart([...cart, { ...item, cantidad: 1 }]);
+    }
+    productsNumberInCart();
+  };
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
 
   return (
     <Container>
@@ -36,7 +54,7 @@ function ItemCards() {
                   <Card.Text className='m-0'>En stock: {item?.stock}</Card.Text>
                   <Card.Text className='my-2'>{item?.desc}</Card.Text>
                   <div className='button-cards mb-3 d-flex'>
-                  <Button className='button-add-cart'>Agregar al carro</Button>
+                  <Button className='button-add-cart' onClick={()=>handleAddCart(item)}>Agregar al carro</Button>
                   <button className='like-button bg-light d-flex align-items-center'><FaRegHeart /></button>
                   </div>
                 </Card.Body>
