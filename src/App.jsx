@@ -18,7 +18,6 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/loginRegister' element={<LoginRegisterContainer />} />
             <Route path='/miCuenta' element={<MyAccount />} />
-            <Route path='/agregarProducto' element={<AddProduct />} />
             <Route path='/miCarro' element={<MyCart />} />
           </Routes>
         </BrowserRouter>
