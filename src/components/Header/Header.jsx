@@ -11,9 +11,9 @@ function Header() {
   return (
     <>
       <Container fluid className='header-bg w-100 h-50 d-flex justify-content-between align-items-center'>
-        <Image className='logo ms-5 mt-1 mb2' src='../src/assets/header/logo.png'/>
+        <Image className='logo ms-5 mt-1 mb2 me-0' src='../src/assets/header/logo.png'/>
         <div>
-        <h1>Ganbare Store</h1>
+        <h1 className="ms-0">Ganbare Store</h1>
         </div>
         {(user)?<NavLoggin />:<NavPublic />}
       </Container>
