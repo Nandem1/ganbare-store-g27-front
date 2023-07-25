@@ -3,6 +3,7 @@ import './Home.css';
 import { Image, Container, Row, Col } from 'react-bootstrap';
 import CarouselHomeMobile from '../../components/Carousel/CarouselHomeMobile';
 import Hero from '../../components/Hero/Hero'
+import ItemCards from '../../components/ItemCards/ItemCards';
 
 function Home() {
   return (
@@ -15,11 +16,9 @@ function Home() {
           <a href="" className='category-link'>Electronica</a>
         </div>
       </div>
-      <div className='mt-3 hero-section bg-danger d-flex justify-content-center align-items-center' >
-        <div>
-          <h1>CARDS SECTION</h1>
-        </div>
-      </div >
+      <Container className='my-4'>
+        <ItemCards />
+      </Container>
       {/* END OF CATEGORY AND CARDS */}
       {/* Descuentos div romboide Desktop*/}
       <div className='desktop discount-section d-flex justify-content-center align-items-center'>
@@ -75,19 +74,19 @@ function Home() {
         <h2 className='text-center my-3 pt-3'>Nuestras marcas</h2>
         <Row lg={5} md={5} sm={1} xs={1}>
           <Col className='py-3'>
-            <Image className='marcas-img m-auto' src='../src/assets/homepage/nintendologo.png'/>
+            <Image className='marcas-img m-auto' src='../src/assets/homepage/nintendologo.png' />
           </Col>
           <Col className='py-3'>
-            <Image className='marcas-img m-auto' src='../src/assets/homepage/funkologo.png'/>
+            <Image className='marcas-img m-auto' src='../src/assets/homepage/funkologo.png' />
           </Col>
           <Col className='py-3'>
-            <Image className='marcas-img m-auto' src='../src/assets/homepage/marvellogo.png'/>
+            <Image className='marcas-img m-auto' src='../src/assets/homepage/marvellogo.png' />
           </Col>
           <Col className='py-3'>
-            <Image className='marcas-img m-auto' src='../src/assets/homepage/dclogo.png'/>
+            <Image className='marcas-img m-auto' src='../src/assets/homepage/dclogo.png' />
           </Col>
           <Col className='py-3'>
-            <Image className='marcas-img m-auto' src='../src/assets/homepage/pslogo.png'/>
+            <Image className='marcas-img m-auto' src='../src/assets/homepage/pslogo.png' />
           </Col>
         </Row>
       </Container>

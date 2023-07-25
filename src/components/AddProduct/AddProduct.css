@@ -1,0 +1,21 @@
+.form-box {
+  width: 85%;
+  background-color: rgba(247, 214, 255, 0.8);
+}
+
+.publicar-button {
+  background-color: #8398B9;
+  border-radius: 50px;
+  border: none;
+}
+
+.publicar-button:hover {
+  background-color: #7388A8;
+  transition: 0.1s;
+}
+
+@media (max-width: 750px) {
+  .form-box {
+    width: 100%;
+  }
+}

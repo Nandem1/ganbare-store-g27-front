@@ -5,7 +5,7 @@ import * as Validator from 'validator';
 import { Button, Image } from 'react-bootstrap';
 import { AuthContext } from '../../contexts/AuthContext';
 import Card from 'react-bootstrap/Card';
-import SweetAlertMessage from '../sweetAlertMessage/sweetAlertMessage';
+import SweetAlertMessage from '../sweetAlertMessage/SweetAlertMessage';
 import './Login.css';
 
 const Login = () => {
@@ -31,13 +31,15 @@ const Login = () => {
       email: values.email,
       password: values.password,
     });
+    const userData = JSON.parse(localStorage.getItem('user'));
+    if(isLoggedIn)navigate("/miCuenta");
 
-    if (isLoggedIn) {
-      setSuccess(true);
-      navigate('/');
-    } else {
-      setSuccess(false);
-    }
+    // if (isLoggedIn) {
+      // setSuccess(true);
+      // navigate(path);
+    // } else {
+      // setSuccess(false);
+    // }
   };
 
   return (
