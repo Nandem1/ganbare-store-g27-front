@@ -31,10 +31,12 @@ const Login = () => {
       email: values.email,
       password: values.password,
     });
+    const userData = JSON.parse(localStorage.getItem('user'));
+    const path = userData?.userType === 'administrador' ? '/agregarProducto' : '/miCuenta';
 
     if (isLoggedIn) {
       setSuccess(true);
-      navigate('/');
+      navigate(path);
     } else {
       setSuccess(false);
     }
