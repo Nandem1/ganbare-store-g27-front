@@ -41,8 +41,8 @@ function AddProduct() {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
-          <Form className='border p-5 form-box m-auto mt-5 d-flex justify-content-between shadow flex-wrap'>
-            <Row lg={2} md={2} sm={1} xs={1}>
+          <Form className='border d-flex p-5 form-box m-auto mt-5 justify-content-between  shadow flex-wrap'>
+            <Row className='w-50'>
               <Col xs={{ order: 'last' }}>
                 <div className=''>
                   <div className='mb-2'>
@@ -80,18 +80,27 @@ function AddProduct() {
                     <ErrorMessage name="quantity" component="div" className="error text-danger" />
                   </div>
 
-                  <button className='publicar-button mt-3 px-4 py-2' type="submit" disabled={isSubmitting}>
-                    Publicar
-                  </button>
-                </div>
-              </Col>
-              <Col className='m-auto' xs={{ order: 'first' }} md={{ order: 'last'}} lg={{ order: 'last'}}>
-                <div className='d-flex justify-content-center align-items-center'>
-                  <Image className='m-auto border rounded' src='../src/assets/homepage/nintendoswitchdocked.png' />
+                    <button className='publicar-button mt-3 px-4 py-2' type="submit" disabled={isSubmitting}>
+                      Publicar
+                    </button>
                 </div>
               </Col>
             </Row>
+            <Row>
+   <Col className='m-auto' xs={{ order: 'first' }} md={{ order: 'last'}} lg={{ order: 'last'}}>
+   <div className='d-flex justify-content-center align-items-center'>
+     <Image className='m-auto border rounded' src='../src/assets/homepage/nintendoswitchdocked.png' />
+   </div>
+ </Col>
+ </Row>
           </Form>
+
+
+
+
+
+
+
         )}
       </Formik>
     </div>
