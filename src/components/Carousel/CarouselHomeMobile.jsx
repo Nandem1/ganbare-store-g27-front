@@ -37,11 +37,11 @@ function CarouselHomeMobile() {
   return (
     <div className="carousel-container">
       <div className="carousel-inner-mobile">
-        <div className='buscas-box-img-mobile slide-mobile'><Image src='../src/assets/homepage/nintendoswitchdocked.png' /></div>
-        <div className='buscas-box-img-mobile slide-mobile'><Image src='../src/assets/homepage/crysis2.png' /></div>
-        <div className='buscas-box-img-mobile slide-mobile'><Image src='../src/assets/homepage/mangas.png' /></div>
-        <div className='buscas-box-img-mobile slide-mobile'><Image src='../src/assets/homepage/kimetsufigura.png' /></div>
-        <div className='buscas-box-img-mobile slide-mobile'><Image src='../src/assets/homepage/poleronotaku.png' /></div>
+        <div className='buscas-box-img-mobile slide-mobile'><Image src='/src/assets/homepage/nintendoswitchdocked.png' /></div>
+        <div className='buscas-box-img-mobile slide-mobile'><Image src='/src/assets/homepage/crysis2.png' /></div>
+        <div className='buscas-box-img-mobile slide-mobile'><Image src='/src/assets/homepage/mangas.png' /></div>
+        <div className='buscas-box-img-mobile slide-mobile'><Image src='/src/assets/homepage/kimetsufigura.png' /></div>
+        <div className='buscas-box-img-mobile slide-mobile'><Image src='/src/assets/homepage/poleronotaku.png' /></div>
       </div>
     </div>
   )
