@@ -89,7 +89,7 @@ function AddProduct() {
             <Row>
    <Col className='m-auto' xs={{ order: 'first' }} md={{ order: 'last'}} lg={{ order: 'last'}}>
    <div className='d-flex justify-content-center align-items-center'>
-     <Image className='m-auto border rounded' src='/src/assets/homepage/nintendoswitchdocked.png' />
+     <Image className='m-auto border rounded' src='https://raw.githubusercontent.com/Nandem1/ganbare-store-g27-front/main/src/assets/homepage/nintendoswitchdocked.png' />
    </div>
  </Col>
  </Row>

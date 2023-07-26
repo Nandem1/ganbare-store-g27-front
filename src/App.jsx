@@ -16,9 +16,9 @@ function App() {
         <Header />
           <Routes>
             <Route path='/ganbare-store-g27-front' element={<Home />} />
-            <Route path='/loginRegister' element={<LoginRegisterContainer />} />
-            <Route path='/miCuenta' element={<MyAccount />} />
-            <Route path='/miCarro' element={<MyCart />} />
+            <Route path='/ganbare-store-g27-front/loginRegister' element={<LoginRegisterContainer />} />
+            <Route path='/ganbare-store-g27-front/miCuenta' element={<MyAccount />} />
+            <Route path='/ganbare-store-g27-front/miCarro' element={<MyCart />} />
           </Routes>
         </BrowserRouter>
         <Footer />

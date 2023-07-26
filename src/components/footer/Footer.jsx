@@ -13,21 +13,21 @@ function Footer() {
         <Row className='py-5'>
           <Col className='border-end border-4'>
             <div className='d-flex flex-column align-items-center'>
-              <Image className='pre-footer-img' src='/src/assets/footer/contacto_vector.png' />
+              <Image className='pre-footer-img' src='https://raw.githubusercontent.com/Nandem1/ganbare-store-g27-front/main/src/assets/footer/contacto_vector.png' />
               <h2>Contáctanos</h2>
               <p>Te ayudamos con dudas y solicitudes</p>
             </div>
           </Col>
           <Col className='border-end border-4'>
             <div className='d-flex flex-column align-items-center'>
-              <Image className='pre-footer-img' src='/src/assets/footer/compras_vector.png' />
+              <Image className='pre-footer-img' src='https://raw.githubusercontent.com/Nandem1/ganbare-store-g27-front/main/src/assets/footer/compras_vector.png' />
               <h2>Mis compras</h2>
               <p>Haz seguimiento y descarga de tus boletas</p>
             </div>
           </Col>
           <Col>
             <div className='d-flex flex-column align-items-center'>
-              <Image className='pre-footer-img' src='/src/assets/footer/tienda_vector.png' />
+              <Image className='pre-footer-img' src='https://raw.githubusercontent.com/Nandem1/ganbare-store-g27-front/main/src/assets/footer/tienda_vector.png' />
               <h2>Tiendas y Horarios</h2>
               <p>Consigue nuestras tiendas físicas y horarios</p>
             </div>
