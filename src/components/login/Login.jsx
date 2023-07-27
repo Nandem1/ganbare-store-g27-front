@@ -32,7 +32,7 @@ const Login = () => {
       password: values.password,
     });
     const userData = JSON.parse(localStorage.getItem('user'));
-    if(isLoggedIn)navigate("/miCuenta");
+    if(isLoggedIn)navigate("/ganbare-store-g27-front/miCuenta");
 
     // if (isLoggedIn) {
       // setSuccess(true);
@@ -49,7 +49,7 @@ const Login = () => {
         <Card.Body>
           <div className='image-container d-flex justify-content-center align-items-center'>
             <Image
-              src="/images/logo.png"
+              src="https://raw.githubusercontent.com/Nandem1/ganbare-store-g27-front/main/public/images/logo.png"
               alt="logo tienda"
               className="logoLogin"
             />
@@ -96,14 +96,14 @@ const Login = () => {
           <Card.Text className='text-center'>Puedes iniciar sesión con</Card.Text>
           <Button className="w-100 mb-3 primary m-0 p-0 buttonRedesSociales" type="submit">
             <Image
-              src='/images/google.png'
+              src='https://raw.githubusercontent.com/Nandem1/ganbare-store-g27-front/main/public/images/google.png'
               className='logoRedesSociales'
             />
             Continuar con Google
           </Button>
           <Button className="w-100 mb-3 primary m-0 p-0 buttonRedesSociales" type="submit">
             <Image
-              src='/images/Facebook-logo.png'
+              src='https://raw.githubusercontent.com/Nandem1/ganbare-store-g27-front/main/public/images/Facebook-logo.png'
               className='logoRedesSociales'
             />
             Continuar con Facebook

@@ -74,7 +74,7 @@ const Registration = () => {
     >
       <Card.Body>
         <Image
-          src="/images/logo.png"
+          src="https://raw.githubusercontent.com/Nandem1/ganbare-store-g27-front/main/public/images/logo.png"
           alt="logo tienda"
           className="logoRegister"
         />
