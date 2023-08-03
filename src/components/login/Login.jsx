@@ -26,19 +26,22 @@ const Login = () => {
     return errors;
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
     const isLoggedIn = login({
-      email: values.email,
+      userEmail: values.email,
       password: values.password,
     });
-    const userData = JSON.parse(localStorage.getItem('user'));
-    if(isLoggedIn)navigate("/miCuenta");
+
+    if (isLoggedIn) navigate("/miCuenta");
+
+
+    //const userData = JSON.parse(localStorage.getItem('user'));
 
     // if (isLoggedIn) {
-      // setSuccess(true);
-      // navigate(path);
+    // setSuccess(true);
+    // navigate(path);
     // } else {
-      // setSuccess(false);
+    // setSuccess(false);
     // }
   };
 

@@ -7,13 +7,14 @@ import Profile from '../../components/profile/Profile'
 
 const MyAccount = () => {
     const { user } = useContext(AuthContext);
+    console.log("CL en MyAccount: ", user)
     return (
         <>
             <Container  className="d-flex justify-content-center">
             <Nav />
             <Profile />
             </Container>
-            {(user.userType === "administrador")?<AddProduct className="w-100"/>:null}
+            {(user.userRol === "administrador")?<AddProduct className="w-100"/>:null}
         </>
     );
 };

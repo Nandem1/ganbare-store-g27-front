@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
+import { obtenerTokenLocalStorage, iniciarSesion } from "../services/api";
 
 const AuthContext = createContext({});
 
@@ -11,25 +12,31 @@ const AuthProvider = ({ children }) => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([]);
 
-    const login = (userData) => {
-        const userDataLocal = JSON.parse(localStorage.getItem("user"));
-        if (userDataLocal) {
-            if (userData.password === userDataLocal.password && userData.email === userDataLocal.email) {
-                setUser(userDataLocal);
-                setErrorType(null);
-                console.log(success);
+    const login = async (userData) => {
+        //const userDataLocal = JSON.parse(localStorage.getItem("user"));
+        const userToken = obtenerTokenLocalStorage()
+        if (!userToken) {
+            //if (userData.password === userDataLocal.password && userData.email === userDataLocal.email) {
+                const token = await iniciarSesion(userData)
+                console.log('Token JWT: ', token)
+                console.log("CL en AuthContext: ", userData)
+                setUser(userData);
+                //setErrorType(null);
+                //console.log(success);
                 return true;
             } else {
-                setErrorType("userNotFound")
-                console.log(success);
+                //setErrorType("userNotFound")
+                //console.log(success);
+                console.log("CL en else de AuthContext: ", userData)
                 return false;
             }
 
-        } else {
-            setErrorType("noRegisteredUsers");
-            console.log(success);
-            return false;
-        }
+        //} else {
+            
+            //setErrorType("noRegisteredUsers");
+            //console.log(success);
+            //return false;
+        //}
     };
 
     const logout = () => {

@@ -15,10 +15,29 @@ export const createUser = async (userData) => {
   }
 };
 
+export const iniciarSesion = async (credenciales) => {
+  try {
+    console.log("CL en API Login: ", credenciales);
+    const response = await api.post(`/users/login`, credenciales);
+    const token = response.data.token;
+
+    localStorage.setItem("token", token);
+
+    return token;
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+    throw error;
+  }
+};
+
+export const obtenerTokenLocalStorage = () => {
+  return localStorage.getItem('token');
+};
+
 export const getCities = async () => {
   try {
     const response = await api.get("/city/allcities");
-    console.log("apijs: ", response.data)
+    console.log("apijs: ", response.data);
     return response.data;
   } catch (error) {
     throw error;
