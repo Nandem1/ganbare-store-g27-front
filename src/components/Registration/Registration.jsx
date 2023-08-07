@@ -220,7 +220,7 @@ const Registration = () => {
               <option value="" disabled>
                 Seleccione ciudad
               </option>
-              {cities.map((city) => {
+              {cities?.map((city) => {
                 return (
                   <option key={city.city_id} value={city.city_id}>
                     {city.cityname}

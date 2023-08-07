@@ -14,7 +14,7 @@ const MyAccount = () => {
             <Nav />
             <Profile />
             </Container>
-            {(user.userRol === "administrador")?<AddProduct className="w-100"/>:null}
+            {(user.userRol === 1)?<AddProduct className="w-100"/>:null}
         </>
     );
 };

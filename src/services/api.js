@@ -34,6 +34,16 @@ export const obtenerTokenLocalStorage = () => {
   return localStorage.getItem('token');
 };
 
+export const getDecodedPayload = async(token) => {
+  try {
+    const response = await api.post('/users/decodeToken', {token});
+    return response.data;
+  } catch (error) {
+    console.error("Error al decodificar payload en front: ", error);
+    throw error
+  }
+};
+
 export const getCities = async () => {
   try {
     const response = await api.get("/city/allcities");
