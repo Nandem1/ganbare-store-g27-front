@@ -40,6 +40,10 @@ const EditProfileCard = () => {
     resetForm();
     }
 
+    if (!user) {
+      return <div>Loading...</div>;
+  }
+
   return (
     <Container className="d-flex ms-3 mt-4 border-0 rounded">
       <Card className="border-0 shadow w-100">
@@ -47,12 +51,12 @@ const EditProfileCard = () => {
           <Card.Title>User Information</Card.Title>
           <Formik
             initialValues={{
-              formEmail: user.email,
-              formRut: user.rut,
-              formPhone: user.phone,
-              formAddress: user.address,
-              formCity: user.city,
-              formRegion: user.region,
+              formEmail: user.userEmail,
+              formRut: user.userRut,
+              formPhone: user.userPhone,
+              formAddress: user.userAddress,
+              formCity: user.userCity,
+              formRegion: "Metropolitana",
             }}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
