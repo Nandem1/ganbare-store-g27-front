@@ -27,22 +27,12 @@ const Login = () => {
   };
 
   const handleSubmit = async (values) => {
-    const isLoggedIn = login({
+    const isLoggedIn = await login({
       userEmail: values.email,
       password: values.password,
     });
 
     if (isLoggedIn) navigate("/miCuenta");
-
-
-    //const userData = JSON.parse(localStorage.getItem('user'));
-
-    // if (isLoggedIn) {
-    // setSuccess(true);
-    // navigate(path);
-    // } else {
-    // setSuccess(false);
-    // }
   };
 
   return (
