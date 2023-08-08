@@ -11,15 +11,16 @@ const AuthProvider = ({ children }) => {
     const [errorType, setErrorType] = useState(null);
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([]);
+    let userToken;
 
     useEffect(() => {
     console.log("Valor actual de user:", user);
   }, [user]);
 
     const login = async (userData) => {
-        let token = localStorage.getItem(token);
-        if (!token){token = await iniciarSesion(userData)}
-        const userDecoded = await getDecodedPayload(token);
+         userToken = localStorage.getItem("token");
+        if (!userToken){userToken = await iniciarSesion(userData)}
+        const userDecoded = await getDecodedPayload(userToken);
         setUser(userDecoded);
         return true;
     };
