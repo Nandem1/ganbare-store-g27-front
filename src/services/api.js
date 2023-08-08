@@ -31,16 +31,16 @@ export const iniciarSesion = async (credenciales) => {
 };
 
 export const obtenerTokenLocalStorage = () => {
-  return localStorage.getItem('token');
+  return localStorage.getItem("token");
 };
 
-export const getDecodedPayload = async(token) => {
+export const getDecodedPayload = async (token) => {
   try {
-    const response = await api.post('/users/decodeToken', {token});
+    const response = await api.post("/users/decodeToken", { token });
     return response.data.userInfo;
   } catch (error) {
     console.error("Error al decodificar payload en front: ", error);
-    throw error
+    throw error;
   }
 };
 
@@ -50,6 +50,22 @@ export const getCities = async () => {
     console.log("apijs: ", response.data);
     return response.data;
   } catch (error) {
+    throw error;
+  }
+};
+
+export const crearProducto = async (producto) => {
+  const token = obtenerTokenLocalStorage();
+  try {
+    const response = await api.post("/products/newproduct", producto, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(response.data)
+    return response.data;
+  } catch (error) {
+    console.error("Error al crear el producto:", error);
     throw error;
   }
 };

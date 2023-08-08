@@ -14,6 +14,11 @@
   transition: 0.1s;
 }
 
+.img-add-product {
+  width: 600px;
+  height: auto;
+}
+
 @media (max-width: 750px) {
   .form-box {
     width: 100%;
