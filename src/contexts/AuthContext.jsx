@@ -14,11 +14,17 @@ const AuthProvider = ({ children }) => {
     let userToken;
 
     useEffect(() => {
-    console.log("Valor actual de user:", user);
-  }, [user]);
+    const getUserPayload = async() => {
+        console.log("Valor actual de user:", user);
+        userToken = localStorage.getItem("token");
+        console.log(userToken);
+        if(userToken){setUser(await getDecodedPayload(userToken))}
+    }
+    getUserPayload();
+  }, []);
 
     const login = async (userData) => {
-         userToken = localStorage.getItem("token");
+        //userToken = localStorage.getItem("token");
         if (!userToken){userToken = await iniciarSesion(userData)}
         const userDecoded = await getDecodedPayload(userToken);
         setUser(userDecoded);
