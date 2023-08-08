@@ -37,7 +37,7 @@ export const obtenerTokenLocalStorage = () => {
 export const getDecodedPayload = async(token) => {
   try {
     const response = await api.post('/users/decodeToken', {token});
-    return response.data;
+    return response.data.userInfo;
   } catch (error) {
     console.error("Error al decodificar payload en front: ", error);
     throw error

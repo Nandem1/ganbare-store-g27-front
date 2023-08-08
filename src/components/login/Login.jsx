@@ -9,7 +9,7 @@ import SweetAlertMessage from '../sweetAlertMessage/SweetAlertMessage';
 import './Login.css';
 
 const Login = () => {
-  const { login, setSuccess, errorType } = useContext(AuthContext);
+  const { login, errorType } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const validateForm = (values) => {

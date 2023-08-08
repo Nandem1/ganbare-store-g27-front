@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import { obtenerTokenLocalStorage, iniciarSesion, getDecodedPayload } from "../services/api";
+import { iniciarSesion, getDecodedPayload } from "../services/api";
 
 const AuthContext = createContext({});
 
@@ -12,10 +12,14 @@ const AuthProvider = ({ children }) => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([]);
 
+    useEffect(() => {
+    console.log("Valor actual de user:", user);
+  }, [user]);
+
     const login = async (userData) => {
         console.log("entre alogin en el contexto");
         //const userDataLocal = JSON.parse(localStorage.getItem("user"));
-        const userToken = obtenerTokenLocalStorage();
+        //const userToken = obtenerTokenLocalStorage();
 
         //if (!//userToken) {
             //if (userData.password === userDataLocal.password && userData.email === userDataLocal.email) {
@@ -23,7 +27,10 @@ const AuthProvider = ({ children }) => {
                 //const userPayload = await getDecodedPayload(token);
                 console.log('Token JWT: ', token)
                 console.log("CL en AuthContext: ", userData)
-                setUser(await getDecodedPayload(token));
+                const userDecoded = await getDecodedPayload(token);
+                console.log(userDecoded);
+                setUser(userDecoded);
+                console.log(user);
                 //setErrorType(null);
                 //console.log(success);
                 return true;
