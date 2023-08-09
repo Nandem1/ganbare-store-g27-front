@@ -69,3 +69,19 @@ export const crearProducto = async (producto) => {
     throw error;
   }
 };
+
+export const getFavs = async(userId) =>{
+  const token = obtenerTokenLocalStorage();
+  try {
+    const response = await api.get(`/fav/getFav/:${userId}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+  },);
+  return response.data;
+  } catch (error) {
+    console.error("Error al obtener favoritos:", error);
+    throw error;
+  }
+}

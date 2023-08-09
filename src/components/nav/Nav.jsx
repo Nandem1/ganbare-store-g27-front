@@ -32,6 +32,16 @@ const Nav = () => {
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="1" className="custom-accordion-item border-0 border-bottom">
+              <Accordion.Header className='item'>Mis Favoritos</Accordion.Header>
+              <Accordion.Body>
+                <ListGroup>
+                  <ListGroup.Item className='border-0' style={{ backgroundColor: '#faf9f9'}}>
+                    <Link to="/mis-compras/seguimiento">Mis Favoritos</Link>
+                  </ListGroup.Item>
+                </ListGroup>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="1" className="custom-accordion-item border-0 border-bottom">
               <Accordion.Header className='item'>Mis Compras</Accordion.Header>
               <Accordion.Body>
                 <ListGroup>
