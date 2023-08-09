@@ -1,15 +1,16 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Col, Container, Row } from 'react-bootstrap';
 import './ItemCards.css'
-import { FaRegHeart, FaHeart } from 'react-icons/fa'
+import { FaRegHeart } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
 
-function ItemCards() {
+function ItemCards(categoryProd) {
   const { products, cart, setCart, productsNumberInCart, user } = useContext(AuthContext)
   const navigate = useNavigate();
+  let productsToMap;
 
   const calcularPrecioSinOferta = (precioData) => {
     const precioConOferta = precioData;
@@ -64,13 +65,17 @@ function ItemCards() {
     console.log(cart);
   }, [cart]);
 
+  if (categoryProd.categoryProd === 0){productsToMap = products}
+  else{productsToMap = products.filter((item)=> item.category_id === categoryProd.categoryProd)}
+
+
   return (
     <Container>
-      <Row lg={4} md={3} sm={1} xs={1} className='row-gap-4'>
-        {products.map((item) => {
+      <Row className='row-gap-4'>
+        {productsToMap?.map((item) => {
           return (
-            <Col key={item.product_id}>
-              <Card className='card-container m-auto shadow'>
+            <Col key={item.product_id} xs={6} sm={6} md={4} lg={3}>
+              <Card className='card-container m-auto shadow' style={{width:150}}>
                 <Card.Img className='card-image' variant="top" src={item?.image} />
                 <Card.Body>
                   <Card.Text className='my-1'>{numberFormat.format(item.price)} <span className='text-decoration-line-through opacity-50'>{calcularPrecioSinOferta(numberFormat.format(item.price))}</span></Card.Text>

@@ -1,23 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Home.css';
 import { Image, Container, Row, Col } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 import CarouselHomeMobile from '../../components/Carousel/CarouselHomeMobile';
 import Hero from '../../components/Hero/Hero'
 import ItemCards from '../../components/ItemCards/ItemCards';
 
 function Home() {
+  const [category, setCategory] = useState(0);
+
+  const handleCategoryClick = (newCategory) => {
+    setCategory(newCategory);
+  };
+
+
   return (
     <>
       <Hero />
       {/* CATEGORY AND CARDS */}
       <div className="d-flex justify-content-between">
         <div className='category-container rounded-pill p-3 d-flex justify-content-around align-items-center shadow mt-3 ms-3'>
-          <a href="" className='category-link text-decoration-underline'>Categorias</a>
-          <a href="" className='category-link'>Electronica</a>
+          <Button className="bg-color" onClick={() => handleCategoryClick(0)}>Todos</Button>
+          <Button className="bg-color" onClick={() => handleCategoryClick(1)}>Electrónica</Button>
+          <Button className="bg-color" onClick={() => handleCategoryClick(2)}>Otros</Button>
+          {/* <a href="" className={`category-link text-decoration-underline ${category === 'all' ? 'active' : ''}`} onClick={() => handleCategoryClick(0)}>Categorias</a> */}
+          {/* <a href="" className={`category-link ${category === 1 ? 'active' : ''}`} onClick={() => handleCategoryClick(1)}>Electronica</a> */}
         </div>
       </div>
       <Container className='my-4'>
-        <ItemCards />
+        <ItemCards categoryProd={category}/>
       </Container>
       {/* END OF CATEGORY AND CARDS */}
       {/* Descuentos div romboide Desktop*/}
