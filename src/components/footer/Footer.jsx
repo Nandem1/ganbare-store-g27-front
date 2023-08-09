@@ -3,9 +3,28 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import './Footer.css'
+import { useNavigate } from 'react-router-dom';
 
 
 function Footer() {
+  const navigate = useNavigate();
+
+  const handleSubscribe = () => {
+    navigate('/loginRegister');
+
+    setTimeout(() => {
+      const scrollToTop = () => {
+        const scrollOptions = {
+          top: 285,
+          behavior: 'smooth'
+        };
+        window.scrollTo(scrollOptions);
+      };
+
+      scrollToTop();
+    }, 50); // Cambia el valor del tiempo de espera si lo deseas
+  };
+
   return (
     <>
       {/* Contáctanos - Mis compras y Tiendas y Horarios */}
@@ -38,7 +57,7 @@ function Footer() {
       <div className='border rounded-pill m-auto position-relative z-1 suscribe-div p-3'>
         <div className='d-flex justify-content-evenly align-items-center flex-grow-1 px-3'>
           <h2 className='m-0 p-0 w-100'>Suscríbete y recibe ofertas y novedades</h2>
-          <button className='suscribe-button rounded-pill px-4 py-2 m-auto'>Suscríbete</button>
+          <button onClick={handleSubscribe} className='suscribe-button rounded-pill px-4 py-2 m-auto'>Suscríbete</button>
         </div>
       </div>
       <Container fluid className='footer-main w-100 h-100 d-flex justify-content-between align-items-center z-n1'>

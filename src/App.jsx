@@ -12,15 +12,15 @@ function App() {
     <div>
       <AuthProvider>
         <BrowserRouter>
-        <Header />
+          <Header />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/loginRegister' element={<LoginRegisterContainer />} />
             <Route path='/miCuenta' element={<MyAccount />} />
             <Route path='/miCarro' element={<MyCart />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
-        <Footer />
       </AuthProvider>
     </div>
   )
