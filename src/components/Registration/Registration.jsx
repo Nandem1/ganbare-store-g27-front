@@ -19,7 +19,7 @@ const Registration = () => {
       password: values.password,
       userAddress: values.userAddress,
       city_id: values.city_id,
-      profile_id: values.profile_id,
+      profile_id: 2,
     };
 
     try {
@@ -64,7 +64,6 @@ const Registration = () => {
       password2: [isRequired],
       userAddress: [isRequired],
       city_id: [isRequired],
-      profile_id: [isRequired],
     };
 
     for (const field in validateFields) {
@@ -142,19 +141,6 @@ const Registration = () => {
               placeholder="Rut"
               className="mb-3 form-control"
             />
-
-            <ErrorMessage
-              name="profile_id"
-              component="div"
-              className="text-danger"
-            />
-            <Field as="select" name="profile_id" className="form-select mb-3">
-              <option value="" disabled>
-                Seleccione tipo de usuario
-              </option>
-              <option value="2">Comprador</option>
-              <option value="1">Administrador</option>
-            </Field>
 
             <ErrorMessage
               name="password"

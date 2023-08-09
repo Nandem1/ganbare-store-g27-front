@@ -27,8 +27,7 @@ const EditProfileCard = () => {
         formRut: values.formRut,
         formPhone: values.formPhone,
         formAddress: values.formAddress,
-        formCity: values.formCity,
-        formRegion: values.formRegion,
+        formCity: values.formCity
       };
       setUser(updatedUser);
       localStorage.removeItem(user);
@@ -55,8 +54,7 @@ const EditProfileCard = () => {
               formRut: user.userRut,
               formPhone: user.userPhone,
               formAddress: user.userAddress,
-              formCity: user.userCity,
-              formRegion: "Metropolitana",
+              formCity: user.userCity
             }}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
@@ -81,7 +79,7 @@ const EditProfileCard = () => {
                   <ErrorMessage name="formPhone" component="div" className="text-danger" />
                 </Form.Group>
 
-                <div className="d-flex w-100 gap-2 mt-2 justify-content-between">
+                <div className="d-flex w-100 gap-2 mt-2 justify-content-around">
                   <Form.Group controlId="formAddress" className="custom-width">
                     <Form.Label>Address</Form.Label>
                     <Field type="text" name="formAddress" placeholder="Enter address" as={Form.Control} disabled={!isEditing} />
@@ -92,12 +90,6 @@ const EditProfileCard = () => {
                     <Form.Label>City</Form.Label>
                     <Field type="text" name="formCity" placeholder="Enter city" as={Form.Control} disabled={!isEditing} />
                     <ErrorMessage name="formCity" component="div" className="text-danger" />
-                  </Form.Group>
-
-                  <Form.Group controlId="formRegion" className="custom-width">
-                    <Form.Label>Region</Form.Label>
-                    <Field type="text" name="formRegion" placeholder="Enter region" as={Form.Control} disabled={!isEditing} />
-                    <ErrorMessage name="formRegion" component="div" className="text-danger" />
                   </Form.Group>
                 </div>
 
