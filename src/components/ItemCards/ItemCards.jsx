@@ -4,11 +4,11 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Col, Container, Row } from 'react-bootstrap';
 import './ItemCards.css'
-import { FaRegHeart } from 'react-icons/fa'
+import { FaRegHeart, FaHeart } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
 
 function ItemCards(categoryProd) {
-  const { products, cart, setCart, productsNumberInCart, user } = useContext(AuthContext)
+  const { products, cart, setCart, productsNumberInCart, user, addToFavState, handleToggleFav, isProductFavorited } = useContext(AuthContext)
   const navigate = useNavigate();
   let productsToMap;
 
@@ -84,7 +84,7 @@ function ItemCards(categoryProd) {
                   <Card.Text className='my-2'>{item?.description}</Card.Text>
                   <div className='button-cards mb-3 d-flex'>
                     <Button className='button-add-cart' onClick={user ? () => handleAddCart(item) : handleNavigateLoginRegister}>Agregar al carro</Button>
-                    <button className='like-button bg-light d-flex align-items-center'><FaRegHeart /></button>
+                    <button onClick={user ? () => handleToggleFav(item.product_id) : handleNavigateLoginRegister} className='like-button bg-light d-flex align-items-center'>{isProductFavorited(item.product_id) ? <FaHeart className='text-danger'/> : <FaRegHeart />}</button>
                   </div>
                 </Card.Body>
               </Card>

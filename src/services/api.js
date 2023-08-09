@@ -62,7 +62,7 @@ export const crearProducto = async (producto) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response.data)
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Error al crear el producto:", error);
@@ -70,18 +70,51 @@ export const crearProducto = async (producto) => {
   }
 };
 
-export const getFavs = async(userId) =>{
+export const getFavs = async (userId) => {
   const token = obtenerTokenLocalStorage();
   try {
-    const response = await api.get(`/fav/getFav/:${userId}`,
-    {
+    const response = await api.get(`/fav/getFav/:${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
-      }
-  },);
-  return response.data;
+      },
+    });
+    return response.data;
   } catch (error) {
     console.error("Error al obtener favoritos:", error);
     throw error;
   }
-}
+};
+
+export const addProductToFavorites = async (userId, productId) => {
+  const token = obtenerTokenLocalStorage();
+  try {
+    const response = await api.post(
+      `/fav/addToFav/${userId}`,
+      { productId },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const removeProductFromFavorites = async (userId, productId) => {
+  const token = obtenerTokenLocalStorage();
+  console.log("token al eliminar fav: ", token);
+  try {
+    const response = await api.delete(`/fav/deleteFav/${userId}`, {
+      data: { productId },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
