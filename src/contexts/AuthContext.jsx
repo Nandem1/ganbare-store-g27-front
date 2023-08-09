@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
     // Lectura de productos
     const getProducts = async () => {
         try {
-            const response = await axios.get('https://raw.githubusercontent.com/Nandem1/ganbare-store-g27-front/main/public/dataproducto.json')
+            const response = await axios.get('http://localhost:3000/products/allproducts')
             const data = await response.data
             setProducts(data)
         } catch (error) {
