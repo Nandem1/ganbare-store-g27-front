@@ -85,6 +85,7 @@ const AuthProvider = ({ children }) => {
                     }
                 })
             const data = await response.data
+            console.log("data en el response de getFavs: ", data)
             setFavs(data)
         } catch (error) {
             console.error("Error en AuthContext - getFavs() : ", error)
@@ -100,6 +101,10 @@ const AuthProvider = ({ children }) => {
     }, [user])
 
     useEffect(() => {
+        console.log("Leyendo los favs en AuthContext para el usuario " + user?.userId + ": " + favs)
+    }, [favs])
+
+    useEffect(() => {
         getProducts()
     }, [])
 
@@ -109,7 +114,7 @@ const AuthProvider = ({ children }) => {
     }, [products, favs])
 
     return (
-        <AuthContext.Provider value={{ user, setUser, login, logout, setSuccess, errorType, setErrorType, products, cart, setCart, handleToggleFav, isProductFavorited }}>
+        <AuthContext.Provider value={{ user, setUser, login, logout, setSuccess, errorType, setErrorType, products, cart, setCart, handleToggleFav, isProductFavorited, favs }}>
             {children}
         </AuthContext.Provider>
     )

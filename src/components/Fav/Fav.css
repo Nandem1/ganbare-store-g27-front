@@ -1,0 +1,33 @@
+.favs-image {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.product-name {
+  font-size: 14px;
+}
+
+.fav-icons {
+  font-size: 24px;
+}
+
+.shopping-box:hover {
+  background-color: black;
+  cursor: pointer !important;
+  color: white;
+  border-color: white !important;
+  transition: 0.2s;
+}
+
+.heart-box {
+  color: RGB(220, 53, 69);
+}
+
+.heart-box:hover {
+  background-color: RGB(220, 53, 69);
+  color: black !important;
+  cursor: pointer !important;
+  border-color: white !important;
+  transition: 0.2s;
+}
