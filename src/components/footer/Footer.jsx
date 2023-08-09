@@ -2,12 +2,15 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import { AuthContext } from '../../contexts/AuthContext';
+import { useContext } from 'react';
 import './Footer.css'
 import { useNavigate } from 'react-router-dom';
 
 
 function Footer() {
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   const handleSubscribe = () => {
     navigate('/loginRegister');
@@ -54,12 +57,12 @@ function Footer() {
         </Row>
       </Container>
       {/* // Resto del Footer - Suscribete y recibe ofertas - Ganbare Store Derechos Reservados */}
-      <div className='border rounded-pill m-auto position-relative z-1 suscribe-div p-3'>
+      {!user && <div className='border rounded-pill m-auto position-relative z-1 suscribe-div p-3'>
         <div className='d-flex justify-content-evenly align-items-center flex-grow-1 px-3'>
           <h2 className='m-0 p-0 w-100'>Suscríbete y recibe ofertas y novedades</h2>
           <button onClick={handleSubscribe} className='suscribe-button rounded-pill px-4 py-2 m-auto'>Suscríbete</button>
         </div>
-      </div>
+      </div>}
       <Container fluid className='footer-main w-100 h-100 d-flex justify-content-between align-items-center z-n1'>
         <Container>
           <Row xs={2} md={4} lg={4} className='footer-row m-auto'>

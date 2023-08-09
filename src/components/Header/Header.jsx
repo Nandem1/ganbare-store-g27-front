@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <>
-      <Container fluid className='header-bg w-100 h-50 d-flex justify-content-between align-items-center'>
+      <Container fluid className='header-bg w-100 h-50 d-flex justify-content-between align-items-center header'>
         <Image onClick={handleMain} className='logo ms-3 mt-1 mb-2 me-1' src='../src/assets/header/logo.png'/>
         <div>
         <h1 className="ms-1">Ganbare Store</h1>
