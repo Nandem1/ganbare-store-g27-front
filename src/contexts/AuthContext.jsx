@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
     const [errorType, setErrorType] = useState(null);
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([]);
-    const [favs, setFavs] = useState([])
+    const [favs, setFavs] = useState(null)
     let userToken;
 
     useEffect(() => {
@@ -105,7 +105,8 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         console.log(products)
-    }, [products])
+        console.log(favs);
+    }, [products, favs])
 
     return (
         <AuthContext.Provider value={{ user, setUser, login, logout, setSuccess, errorType, setErrorType, products, cart, setCart, handleToggleFav, isProductFavorited }}>
