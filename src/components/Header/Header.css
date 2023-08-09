@@ -33,6 +33,11 @@ color: #D699A5 !important;
     width: 25vh;
     margin-left: 5vh;
 }
+
+.logo:hover {
+    cursor: pointer;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,

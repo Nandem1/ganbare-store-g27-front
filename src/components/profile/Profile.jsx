@@ -67,7 +67,7 @@ const EditProfileCard = () => {
                   <ErrorMessage name="formEmail" component="div" className="text-danger" />
                 </Form.Group>
 
-                <Form.Group controlId="formRut" className="w-50 mt-2">
+                <Form.Group controlId="formRut" className="w-50 mt-2 pe-2">
                   <Form.Label>RUT</Form.Label>
                   <Field type="text" name="formRut" placeholder="Enter RUT" as={Form.Control} disabled={!isEditing} />
                   <ErrorMessage name="formRut" component="div" className="text-danger" />

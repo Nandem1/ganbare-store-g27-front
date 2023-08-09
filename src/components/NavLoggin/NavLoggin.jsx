@@ -20,7 +20,7 @@ const NavLoggin = () => {
                         <Nav.Link as={Link} to="/" className="colorButton mb-1 me-1">Inicio</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link as={Link} to="/miCuenta" className="colorButton mb-1">Mi cuenta</Nav.Link>
+                        <Nav.Link as={Link} to="/miCuenta" className="colorButton mb-1 me-1">Mi cuenta</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                       <Nav.Link as={Link} to="/" className="colorButton mb-1" onClick={logout}>Cerrar sesión</Nav.Link>
