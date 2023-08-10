@@ -9,7 +9,7 @@ import SweetAlertMessage from '../sweetAlertMessage/SweetAlertMessage';
 import './Login.css';
 
 const Login = () => {
-  const { login, setSuccess, errorType } = useContext(AuthContext);
+  const { login, errorType } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const validateForm = (values) => {
@@ -26,20 +26,14 @@ const Login = () => {
     return errors;
   };
 
-  const handleSubmit = (values) => {
-    const isLoggedIn = login({
-      email: values.email,
+  const handleSubmit = async (values) => {
+    const isLoggedIn = await login({
+      userEmail: values.email,
       password: values.password,
     });
-    const userData = JSON.parse(localStorage.getItem('user'));
     if(isLoggedIn)navigate("/ganbare-store-g27-front/miCuenta");
 
-    // if (isLoggedIn) {
-      // setSuccess(true);
-      // navigate(path);
-    // } else {
-      // setSuccess(false);
-    // }
+    if (isLoggedIn) navigate("/miCuenta");
   };
 
   return (

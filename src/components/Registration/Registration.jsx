@@ -1,27 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Button, Image } from "react-bootstrap";
 import { AiFillLock, AiFillUnlock } from "react-icons/ai";
 import Card from "react-bootstrap/Card";
 import "./Registration.css";
 import validator from "validator";
+import { createUser, getCities } from "../../services/api";
 
 const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [cities, setCities] = useState([])
 
-  const handleSubmit = (values, { setSubmitting, resetForm }) => {
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const user = {
-      email: values.email,
-      phone: values.phone,
-      rut: values.rut,
+      userEmail: values.userEmail,
+      userPhone: values.userPhone,
+      userRut: values.userRut,
       password: values.password,
-      address: values.address,
-      region: values.region,
-      city: values.city,
-      userType: values.userType,
+      userAddress: values.userAddress,
+      city_id: values.city_id,
+      profile_id: 2,
     };
-    
-    localStorage.setItem("user", JSON.stringify(user));
+
+    try {
+      const res = await createUser(user);
+      console.log("data del user a la db: ", res);
+      resetForm();
+    } catch (err) {
+      console.log("error createUser: ", err);
+    }
+
+    //localStorage.setItem("user", JSON.stringify(user));
 
     alert("Registro exitoso. Ahora puedes iniciar sesión.");
 
@@ -29,29 +38,34 @@ const Registration = () => {
     setSubmitting(false);
   };
 
+  useEffect(() => {
+    getCities().then((res) => {
+      setCities(res);
+      console.log(res);
+    });
+  }, []);
+
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
   const validate = (values) => {
     const errors = {};
-  
+
     const isRequired = (value) => (value ? undefined : 'Campo requerido');
     const maxLength = (max) => (value) => value && value.length > max ? `Máximo ${max} caracteres` : undefined;
     const isValidEmail = (value) => value && !validator.isEmail(value) ? 'Correo electrónico inválido' : undefined;
-  
+
     const validateFields = {
-      name: [isRequired],
-      email: [isRequired, isValidEmail],
-      phone: [isRequired],
-      rut: [isRequired, maxLength(12)],
+      userEmail: [isRequired, isValidEmail],
+      userPhone: [isRequired],
+      userRut: [isRequired, maxLength(12)],
       password: [isRequired],
       password2: [isRequired],
-      address: [isRequired],
-      region: [isRequired],
-      city: [isRequired],
+      userAddress: [isRequired],
+      city_id: [isRequired],
     };
-  
+
     for (const field in validateFields) {
       const fieldValidators = validateFields[field];
       for (const validatorFn of fieldValidators) {
@@ -62,10 +76,10 @@ const Registration = () => {
         }
       }
     }
-  
+
     return errors;
   };
-  
+
 
   return (
     <Card
@@ -83,73 +97,50 @@ const Registration = () => {
         </Card.Title>
         <Formik
           initialValues={{
-            name: "",
-            email: "",
-            phone: "",
-            rut: "",
+            userEmail: "",
+            userPhone: "",
+            userRut: "",
             password: "",
             password2: "",
-            address: "",
-            region: "",
-            city: "",
-            userType: "",
+            userAddress: "",
+            city_id: "",
+            profile_id: "",
           }}
           validate={validate}
           onSubmit={handleSubmit}
         >
           <Form>
-            <ErrorMessage name="name" component="div" className="text-danger" />
-            <Field
-              type="text"
-              name="name"
-              placeholder="Nombre y Apellido"
-              className="mb-3 form-control"
-            />
-
             <ErrorMessage
-              name="email"
+              name="userEmail"
               component="div"
               className="text-danger"
             />
             <Field
               type="email"
-              name="email"
+              name="userEmail"
               placeholder="Correo electrónico"
               className="mb-3 form-control"
             />
 
             <ErrorMessage
-              name="phone"
+              name="userPhone"
               component="div"
               className="text-danger"
             />
             <Field
               type="text"
-              name="phone"
+              name="userPhone"
               placeholder="Teléfono"
               className="mb-3 form-control"
             />
 
-            <ErrorMessage name="rut" component="div" className="text-danger" />
+            <ErrorMessage name="userRut" component="div" className="text-danger" />
             <Field
               type="text"
-              name="rut"
+              name="userRut"
               placeholder="Rut"
               className="mb-3 form-control"
             />
-
-            <ErrorMessage
-              name="userType"
-              component="div"
-              className="text-danger"
-            />
-            <Field as="select" name="userType" className="form-select mb-3">
-              <option value="" disabled>
-                Seleccione tipo de usuario
-              </option>
-              <option value="comprador">Comprador</option>
-              <option value="administrador">Administrador</option>
-            </Field>
 
             <ErrorMessage
               name="password"
@@ -200,36 +191,29 @@ const Registration = () => {
             </div>
 
             <ErrorMessage
-              name="address"
+              name="userAddress"
               component="div"
               className="text-danger"
             />
             <Field
               type="text"
-              name="address"
+              name="userAddress"
               placeholder="Dirección"
               className="mb-3 form-control"
             />
-
-            <ErrorMessage
-              name="region"
-              component="div"
-              className="text-danger"
-            />
-            <Field
-              type="select"
-              name="region"
-              placeholder="Región"
-              className="mb-3 form-control"
-            />
-
-            <ErrorMessage name="city" component="div" className="text-danger" />
-            <Field
-              type="select"
-              name="city"
-              placeholder="Ciudad"
-              className="mb-3 form-control"
-            />
+            <ErrorMessage name="city_id" component="div" className="text-danger" />
+            <Field as="select" name="city_id" className="form-select mb-3">
+              <option value="" disabled>
+                Seleccione ciudad
+              </option>
+              {cities?.map((city) => {
+                return (
+                  <option key={city.city_id} value={city.city_id}>
+                    {city.cityname}
+                  </option>
+                )
+              })}
+            </Field>
 
             <Button type="submit" className="w-100 primary">
               Crear cuenta

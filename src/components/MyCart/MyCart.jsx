@@ -15,7 +15,7 @@ function MyCart() {
   };
 
   const calculateSubtotal = () => {
-    return cart.reduce((total, item) => total + convertStringToNumber(item.precio) * item.cantidad, 0);
+    return cart.reduce((total, item) => total + convertStringToNumber(numberFormat.format(item.price)) * item.cantidad, 0);
   };
 
   const calculateDiscount = (subtotal) => {
@@ -43,6 +43,13 @@ function MyCart() {
     });
   };
 
+  const numberFormat = new Intl.NumberFormat('es-CL', {
+    style: 'currency',
+    currency: 'CLP',
+    maximumFractionDigits: 0, // Establecer el número máximo de decimales
+    minimumFractionDigits: 0, // Establecer el número mínimo de decimales
+  });
+
   return (
     <div>
       <Container>
@@ -57,14 +64,14 @@ function MyCart() {
                 <h5 className='fw-normal'>Subtotal</h5>
               </div>
               {cart.map(product => (
-                <div key={product.id} className='d-flex justify-content-between w-100 px-3 align-items-center'>
-                  <Image className='m-0 p-0 cart-img-product' src={product.img} />
-                  <p className='me-5'>${product.precio.slice(0,-1)}</p>
+                <div key={product.product_id} className='d-flex justify-content-between w-100 px-3 align-items-center'>
+                  <Image className='m-0 p-0 cart-img-product' src={product.image} />
+                  <p className='me-5'>{numberFormat.format(product.price)}</p>
                   <p>{product.cantidad}</p>
-                  <p>${(convertStringToNumber(product.precio) * product.cantidad).toLocaleString()}</p>
+                  <p>${(convertStringToNumber(numberFormat.format(product.price)) * product.cantidad).toLocaleString()}</p>
                 </div>
               ))}
-              </div>
+            </div>
           </Col>
           <Col className='my-4 ms-3 me-3 border p-3 bg-light shadow'>
             <h2>RESUMEN DEL PEDIDO</h2>
@@ -82,20 +89,20 @@ function MyCart() {
       </Container>
 
 
-    {/* Modal para mostrar las opciones de pago */}
-    <Modal show={showModal} onHide={handleCancelarClick}>
-    <Modal.Header closeButton>
-      <Modal.Title>Opciones de pago</Modal.Title>
-    </Modal.Header>
-    <Modal.Body>
-      <Button variant='secondary' onClick={() => handlePagoClick('Mercado Pago')}>Mercado Pago</Button>{' '}
-      <Button variant='secondary' onClick={() => handlePagoClick('OnePay')}>OnePay</Button>
-    </Modal.Body>
-    <Modal.Footer>
-      <Button variant='danger' onClick={handleCancelarClick}>Cancelar</Button>
-    </Modal.Footer>
-  </Modal>
-  </div>
+      {/* Modal para mostrar las opciones de pago */}
+      <Modal show={showModal} onHide={handleCancelarClick}>
+        <Modal.Header closeButton>
+          <Modal.Title>Opciones de pago</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Button variant='secondary' onClick={() => handlePagoClick('Mercado Pago')}>Mercado Pago</Button>{' '}
+          <Button variant='secondary' onClick={() => handlePagoClick('OnePay')}>OnePay</Button>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='danger' onClick={handleCancelarClick}>Cancelar</Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
   )
 }
 

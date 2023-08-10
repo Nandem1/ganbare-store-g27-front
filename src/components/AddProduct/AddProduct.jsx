@@ -6,21 +6,25 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import './AddProduct.css'
 import { Image, Row, Col } from 'react-bootstrap';
+import { crearProducto } from '../../services/api';
 
 function AddProduct() {
   const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('El nombre es requerido.'),
-    category: Yup.string().required('Categoria inválida.'),
+    productname: Yup.string().required('El nombre es requerido.'),
+    image: Yup.string().required('La imagen es requerida.'),
+    category_id: Yup.string().required('Categoria inválida.'),
     price: Yup.number().required('El precio es requerido.'),
+    garantia: Yup.string().required('La garantia es requerida.'),
     description: Yup.string().required('La descripcion es requerida.'),
-    quantity: Yup.number().required('La cantidad es requerida.')
+    stock: Yup.number().required('La cantidad es requerida.')
   });
 
-  const handleSubmit = (values, { setSubmitting }) => {
-    // Aquí puedes manejar la lógica de envío del formulario
-    console.log(values);
+  const handleSubmit = async (values, { setSubmitting }) => {
+    const product = await crearProducto(values)
+    console.log("Values en crear producto: ", values);
+    console.log("product en crear producto: ", product)
 
     // alertas kawais
     Swal.fire({
@@ -36,30 +40,38 @@ function AddProduct() {
   return (
     <div>
       <Formik
-        initialValues={{ name: '', category: '', price: '', description: '', quantity: '' }}
+        initialValues={{ productname: '', category_id: '', price: '', description: '', stock: '', garantia: '', image: '', }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, values }) => (
           <Form className='border d-flex p-5 form-box m-auto mt-5 justify-content-between  shadow flex-wrap'>
             <Row className='w-50'>
               <Col xs={{ order: 'last' }}>
                 <div className=''>
                   <div className='mb-2'>
-                    <label className='form-label' htmlFor="name">Nombre del producto:</label>
-                    <Field className='form-control' type="text" id="name" name="name" />
-                    <ErrorMessage name="name" component="div" className="error text-danger" />
+                    <label className='form-label' htmlFor="productname">Nombre del producto:</label>
+                    <Field className='form-control' type="text" id="productname" name="productname" />
+                    <ErrorMessage name="productname" component="div" className="error text-danger" />
                   </div>
 
                   <div className='mb-2'>
-                    <label className='form-label' htmlFor="category">Categoria:</label>
-                    <Field className='form-select' as='select' type="category" id="category" name="category">
+                    <label className='form-label' htmlFor="image">Imagen:</label>
+                    <Field className='form-control' type="text" id="image" name="image" />
+                    <ErrorMessage name="image" component="div" className="error text-danger" />
+                  </div>
+
+                  <div className='mb-2'>
+                    <label className='form-label' htmlFor="category_id">Categoria:</label>
+                    <Field className='form-select' as='select' type="category_id" id="category_id" name="category_id">
                       <option value="">Selecciona una categoria</option>
-                      <option value="Consolas">Consolas</option>
-                      <option value="Videojuegos">Videojuegos</option>
-                      <option value="Nintendo">Nintendo</option>
+                      <option value="1">Consolas</option>
+                      <option value="2">Videojuegos</option>
+                      <option value="3">Figuras</option>
+                      <option value="4">Ropa</option>
+                      <option value="5">Mangas</option>
                     </Field>
-                    <ErrorMessage name="category" component="div" className="error text-danger" />
+                    <ErrorMessage name="category_id" component="div" className="error text-danger" />
                   </div>
 
                   <div className='mb-2'>
@@ -69,38 +81,37 @@ function AddProduct() {
                   </div>
 
                   <div className='mb-2'>
+                    <label className='form-label' htmlFor="garantia">Garantia:</label>
+                    <Field className='form-control' id="garantia" name="garantia" />
+                    <ErrorMessage name="garantia" component="div" className="error text-danger" />
+                  </div>
+
+                  <div className='mb-2'>
                     <label className='form-label' htmlFor="description">Descripcion:</label>
                     <Field className='form-control' as="textarea" id="description" name="description" />
                     <ErrorMessage name="description" component="div" className="error text-danger" />
                   </div>
 
                   <div className='mb-2'>
-                    <label className='form-label' htmlFor="quantity">Cantidad:</label>
-                    <Field className='form-control' type="quantity" id="quantity" name="quantity" />
-                    <ErrorMessage name="quantity" component="div" className="error text-danger" />
+                    <label className='form-label' htmlFor="stock">Cantidad:</label>
+                    <Field className='form-control' type="stock" id="stock" name="stock" />
+                    <ErrorMessage name="stock" component="div" className="error text-danger" />
                   </div>
 
-                    <button className='publicar-button mt-3 px-4 py-2' type="submit" disabled={isSubmitting}>
-                      Publicar
-                    </button>
+                  <button className='publicar-button mt-3 px-4 py-2' type="submit" disabled={isSubmitting}>
+                    Publicar
+                  </button>
                 </div>
               </Col>
             </Row>
             <Row>
-   <Col className='m-auto' xs={{ order: 'first' }} md={{ order: 'last'}} lg={{ order: 'last'}}>
-   <div className='d-flex justify-content-center align-items-center'>
-     <Image className='m-auto border rounded' src='https://raw.githubusercontent.com/Nandem1/ganbare-store-g27-front/main/src/assets/homepage/nintendoswitchdocked.png' />
-   </div>
- </Col>
- </Row>
+              <Col className='m-auto' xs={{ order: 'first' }} md={{ order: 'last' }} lg={{ order: 'last' }}>
+                <div className='d-flex justify-content-center align-items-center'>
+                  <Image className='img-add-product m-auto border rounded' src={values.image ? values.image : '../src/assets/homepage/nintendoswitchdocked.png'} />
+                </div>
+              </Col>
+            </Row>
           </Form>
-
-
-
-
-
-
-
         )}
       </Formik>
     </div>

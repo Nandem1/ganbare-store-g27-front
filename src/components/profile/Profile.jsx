@@ -27,8 +27,7 @@ const EditProfileCard = () => {
         formRut: values.formRut,
         formPhone: values.formPhone,
         formAddress: values.formAddress,
-        formCity: values.formCity,
-        formRegion: values.formRegion,
+        formCity: values.formCity
       };
       setUser(updatedUser);
       localStorage.removeItem(user);
@@ -40,24 +39,27 @@ const EditProfileCard = () => {
     resetForm();
     }
 
+    if (!user) {
+      return <div>Loading...</div>;
+  }
+
   return (
     <Container className="d-flex ms-3 mt-4 border-0 rounded">
       <Card className="border-0 shadow w-100">
         <Card.Body>
-          <Card.Title>User Information</Card.Title>
+          <Card.Title>Mi Perfil</Card.Title>
           <Formik
             initialValues={{
-              formEmail: user.email,
-              formRut: user.rut,
-              formPhone: user.phone,
-              formAddress: user.address,
-              formCity: user.city,
-              formRegion: user.region,
+              formEmail: user.userEmail,
+              formRut: user.userRut,
+              formPhone: user.userPhone,
+              formAddress: user.userAddress,
+              formCity: user.userCity
             }}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            {({ handleSubmit, isSubmitting, submitForm }) => (
+            {({ handleSubmit, submitForm }) => (
               <Form className="d-flex flex-wrap" onSubmit={handleSubmit}>
                 <Form.Group controlId="formEmail" className="w-100">
                   <Form.Label>Email</Form.Label>
@@ -65,35 +67,29 @@ const EditProfileCard = () => {
                   <ErrorMessage name="formEmail" component="div" className="text-danger" />
                 </Form.Group>
 
-                <Form.Group controlId="formRut" className="w-50 mt-2">
+                <Form.Group controlId="formRut" className="w-50 mt-2 pe-2">
                   <Form.Label>RUT</Form.Label>
                   <Field type="text" name="formRut" placeholder="Enter RUT" as={Form.Control} disabled={!isEditing} />
                   <ErrorMessage name="formRut" component="div" className="text-danger" />
                 </Form.Group>
 
                 <Form.Group controlId="formPhone" className="w-50 mt-2">
-                  <Form.Label>Phone</Form.Label>
+                  <Form.Label>Teléfono</Form.Label>
                   <Field type="text" name="formPhone" placeholder="Enter phone number" as={Form.Control} disabled={!isEditing} />
                   <ErrorMessage name="formPhone" component="div" className="text-danger" />
                 </Form.Group>
 
-                <div className="d-flex w-100 gap-2 mt-2 justify-content-between">
+                <div className="d-flex w-100 gap-2 mt-2 justify-content-around">
                   <Form.Group controlId="formAddress" className="custom-width">
-                    <Form.Label>Address</Form.Label>
+                    <Form.Label>Dirección</Form.Label>
                     <Field type="text" name="formAddress" placeholder="Enter address" as={Form.Control} disabled={!isEditing} />
                     <ErrorMessage name="formAddress" component="div" className="text-danger" />
                   </Form.Group>
 
                   <Form.Group controlId="formCity" className="custom-width">
-                    <Form.Label>City</Form.Label>
+                    <Form.Label>Ciudad</Form.Label>
                     <Field type="text" name="formCity" placeholder="Enter city" as={Form.Control} disabled={!isEditing} />
                     <ErrorMessage name="formCity" component="div" className="text-danger" />
-                  </Form.Group>
-
-                  <Form.Group controlId="formRegion" className="custom-width">
-                    <Form.Label>Region</Form.Label>
-                    <Field type="text" name="formRegion" placeholder="Enter region" as={Form.Control} disabled={!isEditing} />
-                    <ErrorMessage name="formRegion" component="div" className="text-danger" />
                   </Form.Group>
                 </div>
 
