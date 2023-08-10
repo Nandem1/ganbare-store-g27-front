@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       <AuthProvider>
-        <BrowserRouter basename='/ganbare-store-g27-front'>
+        <BrowserRouter>
           <Header />
           <Routes>
             <Route path='/ganbare-store-g27-front' element={<Home />} />
