@@ -13,7 +13,7 @@ function Footer() {
   const { user } = useContext(AuthContext);
 
   const handleSubscribe = () => {
-    navigate('/ganbare-store-g27-front/loginRegister');
+    navigate('/loginRegister');
 
     setTimeout(() => {
       const scrollToTop = () => {

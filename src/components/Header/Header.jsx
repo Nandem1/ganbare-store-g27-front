@@ -12,7 +12,7 @@ function Header() {
   const navigate = useNavigate();
 
   const handleMain = () => {
-    navigate('/ganbare-store-g27-front');
+    navigate('/');
   }
 
   return (

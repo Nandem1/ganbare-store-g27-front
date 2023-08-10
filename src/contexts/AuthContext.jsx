@@ -68,7 +68,7 @@ const AuthProvider = ({ children }) => {
     // Lectura de productos
     const getProducts = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/products/allproducts')
+            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/products/allproducts`)
             const data = await response.data
             setProducts(data)
         } catch (error) {
@@ -79,7 +79,7 @@ const AuthProvider = ({ children }) => {
     const getFavs = async (userId) => {
         const token = localStorage.getItem("token");
         try {
-            const response = await axios.get(`http://localhost:3000/fav/getFav/${userId}`,
+            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/fav/getFav/${userId}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`

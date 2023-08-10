@@ -31,8 +31,6 @@ const Login = () => {
       userEmail: values.email,
       password: values.password,
     });
-    if(isLoggedIn)navigate("/ganbare-store-g27-front/miCuenta");
-
     if (isLoggedIn) navigate("/miCuenta");
   };
 
