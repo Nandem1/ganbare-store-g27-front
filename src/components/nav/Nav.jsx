@@ -41,7 +41,7 @@ const Nav = ({ onOptionClick }) => {
                 </ListGroup>
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey="1" className="custom-accordion-item border-0 border-bottom">
+            <Accordion.Item eventKey="2" className="custom-accordion-item border-0 border-bottom">
               <Accordion.Header className='item'>Mis Compras</Accordion.Header>
               <Accordion.Body>
                 <ListGroup>
@@ -54,7 +54,7 @@ const Nav = ({ onOptionClick }) => {
                 </ListGroup>
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey="2" className="custom-accordion-item border-0">
+            <Accordion.Item eventKey="3" className="custom-accordion-item border-0">
               <Accordion.Header className='item'>Tarjetas y cuentas</Accordion.Header>
               <Accordion.Body>
                 <ListGroup>
