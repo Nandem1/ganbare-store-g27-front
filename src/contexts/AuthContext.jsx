@@ -61,7 +61,8 @@ const AuthProvider = ({ children }) => {
     };
 
     const isProductFavorited = (productId) => {
-        return favs.some(fav => fav.product_id === productId);
+        if(favs){return favs.some(fav => fav.product_id === productId);}
+        else{return}
     };
 
     // Lectura de productos

@@ -4,7 +4,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
 import './Nav.css';
 
-const Nav = () => {
+const Nav = ({ onOptionClick }) => {
   const { user } = useContext(AuthContext);
     return (
       <Card style={{ width: '25%' }}  className='mt-4 d-flex border-0 shadow'>
@@ -20,7 +20,7 @@ const Nav = () => {
               <Accordion.Body>
                 <ListGroup>
                   <ListGroup.Item className='border-0 item' style={{ backgroundColor: '#faf9f9'}}>
-                    <Link to="/mi-perfil/datos-personales">Datos personales</Link>
+                    <Link to="#" onClick={() => onOptionClick('misDatos')}>Datos personales</Link>
                   </ListGroup.Item>
                   <ListGroup.Item className='border-0 item' style={{ backgroundColor: '#faf9f9'}}>
                     <Link to="/mi-perfil/cambio-contraseña">Cambio de contraseña</Link>
@@ -36,7 +36,7 @@ const Nav = () => {
               <Accordion.Body>
                 <ListGroup>
                   <ListGroup.Item className='border-0' style={{ backgroundColor: '#faf9f9'}}>
-                    <Link to="/mis-compras/seguimiento">Mis Favoritos</Link>
+                    <Link to="#" onClick={() => onOptionClick('favoritos')}>Mis Favoritos</Link>
                   </ListGroup.Item>
                 </ListGroup>
               </Accordion.Body>

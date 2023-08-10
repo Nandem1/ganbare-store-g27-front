@@ -4,16 +4,6 @@ import { Card, Form, Button, Container, Image } from 'react-bootstrap';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import "./Fav.css"
-<<<<<<< HEAD
-import CardProd from '../CardProd/CardProd';
-
-const FavsCard = () => {
-  const { user, setUser, favs, setFavs} = useContext(AuthContext);
-  if (!favs) {
-    return <div>Loading...</div>;
-}
-  console.log(favs);
-=======
 import { FaRegHeart, FaHeart, FaShoppingCart } from 'react-icons/fa'
 
 const FavsCard = () => {
@@ -30,7 +20,7 @@ const FavsCard = () => {
     } else {
       setCart([...cart, { ...item, cantidad: 1 }]);
     }
-    productsNumberInCart();
+    //productsNumberInCart();
   };
 
   console.log(favs)
@@ -49,26 +39,15 @@ const FavsCard = () => {
     const nuevoPrecioSinOferta = precioNumerico + descuento;
     return '$' + nuevoPrecioSinOferta.toLocaleString();
   };
->>>>>>> 06c625c21fbb05707432a290cf2719098d407018
 
   return (
     <Container className="d-flex ms-3 mt-4 border-0 rounded">
       <Card className="border-0 shadow w-100">
         <Card.Body>
           <Card.Title>Mis Favoritos</Card.Title>
-<<<<<<< HEAD
-            {
-              favs?.map(product =>{
-                console.log(product);
-                return(
-                  <CardProd product={product} key={product.product_id} />
-                )
-              })
-            }
-=======
           {favs?.map((item) => {
             return (
-              <div className='d-flex border my-2 shadow justify-content-between'>
+              <div className='d-flex border my-2 shadow justify-content-between' key={item.product_id}>
                 <div className='d-flex align-items-center'>
                   <Image className='favs-image' src={item.image}/>
                   <div>
@@ -83,7 +62,6 @@ const FavsCard = () => {
               </div>
             )
           })}
->>>>>>> 06c625c21fbb05707432a290cf2719098d407018
         </Card.Body>
       </Card>
     </Container>
