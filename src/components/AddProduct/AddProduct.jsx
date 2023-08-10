@@ -107,7 +107,7 @@ function AddProduct() {
             <Row>
               <Col className='m-auto' xs={{ order: 'first' }} md={{ order: 'last' }} lg={{ order: 'last' }}>
                 <div className='d-flex justify-content-center align-items-center'>
-                  <Image className='img-add-product m-auto border rounded' src={values.image ? values.image : '../src/assets/homepage/nintendoswitchdocked.png'} />
+                  <Image className='img-add-product m-auto border rounded' src={values.image ? values.image : 'https://home.ripley.cl/store/Attachment/WOP/D172/2000363222529/2000363222529_2.jpg'} />
                 </div>
               </Col>
             </Row>

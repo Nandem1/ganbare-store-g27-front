@@ -26,7 +26,7 @@ const NavLoggin = () => {
                       <Nav.Link as={Link} to="/" className="colorButton mb-1" onClick={logout}>Cerrar sesión</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link as={Link} to="/ganbare-store-g27-front/miCarro"><span className="colorButton mb-1 p-3 material-symbols-outlined d-flex">shopping_cart<span className="fs-5">{productsInCart}</span></span></Nav.Link>
+                        <Nav.Link as={Link} to="/miCarro"><span className="colorButton mb-1 p-3 material-symbols-outlined d-flex">shopping_cart<span className="fs-5">{productsInCart}</span></span></Nav.Link>
                     </Nav.Item>
                 </Nav>
             </div>
